@@ -19,7 +19,7 @@ export class LeafletDrawDirective
 	drawControl: L.Control.Draw;
 	featureGroup: L.FeatureGroup;
 
-	@Input('leafletDraw') drawOptions: L.Control.IDrawConstructorOptions = null;
+	@Input('leafletDraw') drawOptions: L.Control.DrawConstructorOptions = null;
 
 	constructor(leafletDirective: LeafletDirective) {
 		this.leafletDirective = leafletDirective;
@@ -50,7 +50,7 @@ export class LeafletDrawDirective
 	ngOnChanges(changes: { [key: string]: SimpleChange }) {
 	}
 
-	initializeDrawOptions(options: L.Control.IDrawConstructorOptions) {
+	initializeDrawOptions(options: L.Control.DrawConstructorOptions) {
 
 		// Ensure the options have a featureGroup
 		if (null == options) {

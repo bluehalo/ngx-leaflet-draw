@@ -8,11 +8,11 @@ export declare class LeafletDrawDirective implements OnChanges, OnInit {
     map: L.Map;
     drawControl: L.Control.Draw;
     featureGroup: L.FeatureGroup;
-    drawOptions: L.Control.IDrawConstructorOptions;
+    drawOptions: L.Control.DrawConstructorOptions;
     constructor(leafletDirective: LeafletDirective);
     ngOnInit(): void;
     ngOnChanges(changes: {
         [key: string]: SimpleChange;
     }): void;
-    initializeDrawOptions(options: L.Control.IDrawConstructorOptions): L.Control.IDrawConstructorOptions;
+    initializeDrawOptions(options: L.Control.DrawConstructorOptions): L.Control.DrawConstructorOptions;
 }
