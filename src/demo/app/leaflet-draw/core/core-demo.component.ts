@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 
 import * as L from 'leaflet';
 
-import { LeafletDrawCoreDemoModel } from './core-demo.model';
-
 @Component({
 	selector: 'leaflet-draw-core-demo',
 	templateUrl: './core-demo.component.html'

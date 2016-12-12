@@ -1,6 +1,7 @@
 "use strict";
 var core_1 = require('@angular/core');
 var angular2_leaflet_1 = require('@asymmetrik/angular2-leaflet');
+var leaflet_draw_directive_1 = require('./core/leaflet-draw.directive');
 var LeafletDrawModule = (function () {
     function LeafletDrawModule() {
     }
@@ -9,8 +10,12 @@ var LeafletDrawModule = (function () {
             imports: [
                 angular2_leaflet_1.LeafletModule
             ],
-            exports: [],
-            declarations: [],
+            exports: [
+                leaflet_draw_directive_1.LeafletDrawDirective
+            ],
+            declarations: [
+                leaflet_draw_directive_1.LeafletDrawDirective
+            ],
             providers: []
         }), 
         __metadata('design:paramtypes', [])
