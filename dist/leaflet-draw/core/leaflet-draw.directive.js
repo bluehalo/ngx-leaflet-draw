@@ -46,7 +46,7 @@ var LeafletDrawDirective = (function () {
         return options;
     };
     __decorate([
-        core_1.Input('leafletDraw'), 
+        core_1.Input('leafletDrawOptions'), 
         __metadata('design:type', Object)
     ], LeafletDrawDirective.prototype, "drawOptions", void 0);
     LeafletDrawDirective = __decorate([

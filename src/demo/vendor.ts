@@ -40,6 +40,11 @@ import 'leaflet-draw';
 import 'leaflet-draw/dist/leaflet.draw.css';
 import '@asymmetrik/angular2-leaflet';
 
+// This addresses a weird thing with how Leaflet handles icon URLs. See README for details.
+import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon.png';
+
+
 // Other Dependencies
 import 'rxjs';
 
