@@ -2,12 +2,12 @@
 	"name": "@asymmetrik/angular2-leaflet-draw",
 	"artifactName": "angular2-leaflet-draw",
 	"description": "Angular 2 component for the draw plugin for Leaflet",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "Asymmetrik, Ltd.",
 	"copyright": "Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.",
 	"license": "MIT",
 
-	"main": "dist/bundles/angular2-leaflet.js",
+	"main": "dist/bundles/angular2-leaflet-draw.js",
 	"module": "src/index.ts",
 	"typings": "dist/index.d.ts",
 
