@@ -11,13 +11,17 @@
 - [API](#api)
 - [Contribute](#contribute)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [Credits](#credits)
 
 ## Install
-Install the package via npm:
+Install the package and its peer dependencies via npm:
 ```
+npm install leaflet
+npm install leaflet-draw
 npm install @asymmetrik/angular2-leaflet-draw
 ```
+
+If you want to run the demo, clone the repository, perform an ```npm install```, ```gulp dev``` and then go to http://localhost:9000/src/demo/index.html
 
 
 ## Usage
@@ -36,7 +40,7 @@ PRs accepted. If you are part of Asymmetrik, please make contributions on featur
 See LICENSE in repository for details.
 
 
-## Acknowledgements
+## Credits
 TODO: Fill in details about leaflet and leaflet-draw
 
 
