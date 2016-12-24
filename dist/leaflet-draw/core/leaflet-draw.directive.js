@@ -5,11 +5,11 @@ var angular2_leaflet_1 = require('@asymmetrik/angular2-leaflet');
 var LeafletDrawDirective = (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;
-        this.leafletDirective = leafletDirective;
+        this.leafletDirective = new angular2_leaflet_1.LeafletDirectiveWrapper(leafletDirective);
     }
     LeafletDrawDirective.prototype.ngOnInit = function () {
         var _this = this;
-        this.map = this.leafletDirective.getMap();
+        this.leafletDirective.init();
         // Initialize the draw options (in case they weren't provided)
         this.drawOptions = this.initializeDrawOptions(this.drawOptions);
         // Create the control
@@ -17,9 +17,9 @@ var LeafletDrawDirective = (function () {
         // Pull out the feature group for convenience
         this.featureGroup = this.drawOptions.edit.featureGroup;
         // Add the control to the map
-        this.map.addControl(this.drawControl);
+        this.leafletDirective.getMap().addControl(this.drawControl);
         // Register the main handler for events coming from the draw plugin
-        this.map.on(L.Draw.Event.CREATED, function (e) {
+        this.leafletDirective.getMap().on(L.Draw.Event.CREATED, function (e) {
             var layer = e.layer;
             _this.featureGroup.addLayer(layer);
         });
@@ -41,7 +41,7 @@ var LeafletDrawDirective = (function () {
         if (null == options.edit.featureGroup) {
             // No feature group was provided, so we're going to add it ourselves
             options.edit.featureGroup = L.featureGroup();
-            this.map.addLayer(options.edit.featureGroup);
+            this.leafletDirective.getMap().addLayer(options.edit.featureGroup);
         }
         return options;
     };

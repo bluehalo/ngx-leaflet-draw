@@ -1,11 +1,10 @@
-/// <reference types="leaflet" />
 /// <reference types="leaflet-draw" />
+/// <reference types="leaflet" />
 import { OnChanges, OnInit, SimpleChange } from '@angular/core';
 import * as L from 'leaflet';
-import { LeafletDirective } from '@asymmetrik/angular2-leaflet';
+import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
 export declare class LeafletDrawDirective implements OnChanges, OnInit {
-    leafletDirective: LeafletDirective;
-    map: L.Map;
+    leafletDirective: LeafletDirectiveWrapper;
     drawControl: L.Control.Draw;
     featureGroup: L.FeatureGroup;
     drawOptions: L.Control.DrawConstructorOptions;
