@@ -2,7 +2,7 @@ import { Directive, Input, OnChanges, OnInit, SimpleChange } from '@angular/core
 
 import * as L from 'leaflet';
 
-import { LeafletDirective } from '@asymmetrik/angular2-leaflet';
+import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
 
 
 @Directive({
@@ -11,21 +11,19 @@ import { LeafletDirective } from '@asymmetrik/angular2-leaflet';
 export class LeafletDrawDirective
 	implements OnChanges, OnInit {
 
-	leafletDirective: LeafletDirective;
+	leafletDirective: LeafletDirectiveWrapper;
 
-	// Reference to the primary map object
-	map: L.Map;
 	drawControl: L.Control.Draw;
 	featureGroup: L.FeatureGroup;
 
 	@Input('leafletDrawOptions') drawOptions: L.Control.DrawConstructorOptions = null;
 
 	constructor(leafletDirective: LeafletDirective) {
-		this.leafletDirective = leafletDirective;
+		this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
 	}
 
 	ngOnInit() {
-		this.map = this.leafletDirective.getMap();
+		this.leafletDirective.init();
 
 		// Initialize the draw options (in case they weren't provided)
 		this.drawOptions = this.initializeDrawOptions(this.drawOptions);
@@ -37,10 +35,10 @@ export class LeafletDrawDirective
 		this.featureGroup = this.drawOptions.edit.featureGroup;
 
 		// Add the control to the map
-		this.map.addControl(this.drawControl);
+		this.leafletDirective.getMap().addControl(this.drawControl);
 
 		// Register the main handler for events coming from the draw plugin
-		this.map.on(L.Draw.Event.CREATED, (e: any) => {
+		this.leafletDirective.getMap().on(L.Draw.Event.CREATED, (e: any) => {
 			let layer = (e as L.DrawEvents.Created).layer;
 			this.featureGroup.addLayer(layer);
 		});
@@ -65,7 +63,7 @@ export class LeafletDrawDirective
 		if (null == options.edit.featureGroup) {
 			// No feature group was provided, so we're going to add it ourselves
 			options.edit.featureGroup = L.featureGroup();
-			this.map.addLayer(options.edit.featureGroup);
+			this.leafletDirective.getMap().addLayer(options.edit.featureGroup);
 		}
 
 		return options;
