@@ -16,7 +16,7 @@ export class LeafletDrawDirective
 	drawControl: L.Control.Draw;
 	featureGroup: L.FeatureGroup;
 
-	@Input('leafletDraw') drawOptions: L.Control.DrawConstructorOptions = null;
+	@Input('leafletDrawOptions') drawOptions: L.Control.DrawConstructorOptions = null;
 
 	constructor(leafletDirective: LeafletDirective) {
 		this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
