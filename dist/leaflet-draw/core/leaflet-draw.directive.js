@@ -46,12 +46,12 @@ var LeafletDrawDirective = (function () {
         return options;
     };
     __decorate([
-        core_1.Input('leafletDrawOptions'), 
+        core_1.Input('leafletDraw'), 
         __metadata('design:type', Object)
     ], LeafletDrawDirective.prototype, "drawOptions", void 0);
     LeafletDrawDirective = __decorate([
         core_1.Directive({
-            selector: '[leaflet-draw]'
+            selector: '[leafletDraw]'
         }), 
         __metadata('design:paramtypes', [angular2_leaflet_1.LeafletDirective])
     ], LeafletDrawDirective);

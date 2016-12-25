@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import * as L from 'leaflet';
 
 @Component({
-	selector: 'leaflet-draw-core-demo',
+	selector: 'leafletDrawCoreDemo',
 	templateUrl: './core-demo.component.html'
 })
 export class LeafletDrawCoreDemoComponent {

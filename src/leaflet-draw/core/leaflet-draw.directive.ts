@@ -6,7 +6,7 @@ import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-
 
 
 @Directive({
-	selector: '[leaflet-draw]'
+	selector: '[leafletDraw]'
 })
 export class LeafletDrawDirective
 	implements OnChanges, OnInit {
@@ -16,7 +16,7 @@ export class LeafletDrawDirective
 	drawControl: L.Control.Draw;
 	featureGroup: L.FeatureGroup;
 
-	@Input('leafletDrawOptions') drawOptions: L.Control.DrawConstructorOptions = null;
+	@Input('leafletDraw') drawOptions: L.Control.DrawConstructorOptions = null;
 
 	constructor(leafletDirective: LeafletDirective) {
 		this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
