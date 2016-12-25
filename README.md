@@ -33,16 +33,21 @@ You must specify an initial zoom/center and set of layers either via ```leafletO
 
 ```html
 <div leaflet style="height: 400px;"
-     [leafletDraw]="drawConfig"
-     [leafletOptions]="options">
+     leafletDraw
+     [leafletOptions]="options"
+     [leafletDrawOptions]="drawOptions">
 </div>
 ```
 
-#### leafletDraw
-This attribute is both the attribute that initiates the draw plugin and the input binding used to configure the plugin. 
+### leafletDraw
+This attribute is an attribute directive that initiates the draw plugin. 
 
+#### leafletDrawOptions
+Input binding for the options to be passed to the draw plugin upon creation.
+These options are only currently processed at creation time. 
+  
 ```js
-drawConfig = {
+drawOptions = {
 	position: 'topright',
 	draw: {
 		marker: {
@@ -61,9 +66,9 @@ drawConfig = {
 };
 ```
 
-The configuration object is passed through to the Leaflet.draw object.
+The options object is passed through to the Leaflet.draw object.
 Therefore, you can reference [their documentation](https://github.com/Leaflet/Leaflet.draw) for help configuring this plugin.
-If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the Angular 2 plugin will create one internally and put it in the configuration object. 
+If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object. 
 
 
 ## Contribute
