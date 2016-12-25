@@ -16,7 +16,7 @@ export class LeafletDrawCoreDemoComponent {
 		center: L.latLng({ lat: 46.879966, lng: -121.726909 })
 	};
 
-	drawOptions = {
+	drawConfig = {
 		position: 'topright',
 		draw: {
 			marker: {
