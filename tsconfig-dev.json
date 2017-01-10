@@ -15,13 +15,7 @@
 		"sourceMap": true
 	},
 
-<<<<<<< HEAD
-	"exclude": [
-		"node_modules",
-		"dist"
-=======
 	"files": [
 		"src/**/*"
->>>>>>> template/master
 	]
 }

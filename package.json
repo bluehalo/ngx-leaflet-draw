@@ -1,15 +1,8 @@
 {
-<<<<<<< HEAD
 	"name": "@asymmetrik/angular2-leaflet-draw",
 	"artifactName": "angular2-leaflet-draw",
 	"description": "Angular 2 component for the draw plugin for Leaflet",
-	"version": "1.0.2",
-=======
-	"name": "@asymmetrik/angular2-template",
-	"artifactName": "angular2-template",
-	"description": "Angular 2 components template project",
-	"version": "0.0.9",
->>>>>>> template/master
+	"version": "1.0.3",
 	"author": "Asymmetrik, Ltd.",
 	"copyright": "Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.",
 	"license": "MIT",
