@@ -1,11 +1,10 @@
-"use strict";
-var core_1 = require('@angular/core');
-var L = require('leaflet');
-var angular2_leaflet_1 = require('@asymmetrik/angular2-leaflet');
+import { Directive, Input } from '@angular/core';
+import * as L from 'leaflet';
+import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
 var LeafletDrawDirective = (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;
-        this.leafletDirective = new angular2_leaflet_1.LeafletDirectiveWrapper(leafletDirective);
+        this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
     }
     LeafletDrawDirective.prototype.ngOnInit = function () {
         var _this = this;
@@ -25,6 +24,7 @@ var LeafletDrawDirective = (function () {
         });
     };
     LeafletDrawDirective.prototype.ngOnChanges = function (changes) {
+        // No changes being handled currently
     };
     LeafletDrawDirective.prototype.initializeDrawOptions = function (options) {
         // Ensure the options have a featureGroup
@@ -45,18 +45,18 @@ var LeafletDrawDirective = (function () {
         }
         return options;
     };
-    __decorate([
-        core_1.Input('leafletDrawOptions'), 
-        __metadata('design:type', Object)
-    ], LeafletDrawDirective.prototype, "drawOptions", void 0);
-    LeafletDrawDirective = __decorate([
-        core_1.Directive({
-            selector: '[leafletDraw]'
-        }), 
-        __metadata('design:paramtypes', [angular2_leaflet_1.LeafletDirective])
-    ], LeafletDrawDirective);
     return LeafletDrawDirective;
 }());
-exports.LeafletDrawDirective = LeafletDrawDirective;
+__decorate([
+    Input('leafletDrawOptions'),
+    __metadata("design:type", Object)
+], LeafletDrawDirective.prototype, "drawOptions", void 0);
+LeafletDrawDirective = __decorate([
+    Directive({
+        selector: '[leafletDraw]'
+    }),
+    __metadata("design:paramtypes", [LeafletDirective])
+], LeafletDrawDirective);
+export { LeafletDrawDirective };
 
 //# sourceMappingURL=leaflet-draw.directive.js.map

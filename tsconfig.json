@@ -1,22 +1,28 @@
 {
 	"compilerOptions": {
 		"target": "es5",
+		"module": "es6",
 
-		"module": "commonjs",
 		"moduleResolution": "node",
 
+		"declaration": true,
+		"noEmitHelpers": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"noEmitHelpers": true,
+
+		"lib": [ "es5", "dom" ],
 
 		"noImplicitAny": true,
 		"suppressImplicitAnyIndexErrors": true,
 
-		"declaration": true,
+		"allowUnreachableCode": false,
+		"noUnusedParameters": false,
+		"noUnusedLocals": true,
+
 		"sourceMap": true
 	},
 
-	"files": [
-		"src/**/*"
+	"exclude": [
+		"node_modules"
 	]
 }
