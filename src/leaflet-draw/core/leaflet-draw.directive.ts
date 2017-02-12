@@ -45,6 +45,7 @@ export class LeafletDrawDirective
 	}
 
 	ngOnChanges(changes: { [key: string]: SimpleChange }) {
+		// No changes being handled currently
 	}
 
 	initializeDrawOptions(options: L.Control.DrawConstructorOptions) {

@@ -28,6 +28,4 @@ export class LeafletDrawCoreDemoComponent {
 		}
 	};
 
-	constructor() { }
-
 }

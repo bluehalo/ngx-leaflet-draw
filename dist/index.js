@@ -1,5 +1,3 @@
-"use strict";
-var leaflet_draw_module_1 = require('./leaflet-draw/leaflet-draw.module');
-exports.LeafletDrawModule = leaflet_draw_module_1.LeafletDrawModule;
+export { LeafletDrawModule } from './leaflet-draw/leaflet-draw.module';
 
 //# sourceMappingURL=index.js.map
