@@ -2,7 +2,7 @@
 	"name": "@asymmetrik/angular2-leaflet-draw",
 	"artifactName": "angular2-leaflet-draw",
 	"description": "Angular 2 component for the draw plugin for Leaflet",
-	"version": "1.1.0",
+	"version": "1.1.1",
 
 	"author": "Asymmetrik, Ltd.",
 	"copyright": "Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.",
@@ -21,7 +21,7 @@
 		"@angular/core": "2",
 		"@angular/common": "2",
 
-		"leaflet": "1.0",
+		"leaflet": "1",
 		"leaflet-draw": "0.4",
 
 		"@asymmetrik/angular2-leaflet": "1"
@@ -56,7 +56,6 @@
 		"rollup": "0.41",
 
 		"typescript": "2.1",
-		"ts-helpers": "1.1",
 		"tslint": "4.4",
 		"tslint-stylish": "2.1",
 
