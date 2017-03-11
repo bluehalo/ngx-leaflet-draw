@@ -1,4 +1,4 @@
-/*! @asymmetrik/angular2-leaflet-draw-1.1.1 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.*/
+/*! @asymmetrik/angular2-leaflet-draw-1.2.0 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@asymmetrik/angular2-leaflet'), require('leaflet')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@asymmetrik/angular2-leaflet', 'leaflet'], factory) :
@@ -80,6 +80,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 exports.LeafletDrawModule = (function () {
     function LeafletDrawModule() {
     }
+    LeafletDrawModule.forRoot = function () {
+        return { ngModule: _asymmetrik_angular2Leaflet.LeafletModule, providers: [] };
+    };
     return LeafletDrawModule;
 }());
 exports.LeafletDrawModule = __decorate([
@@ -92,8 +95,7 @@ exports.LeafletDrawModule = __decorate([
         ],
         declarations: [
             LeafletDrawDirective
-        ],
-        providers: []
+        ]
     })
 ], exports.LeafletDrawModule);
 

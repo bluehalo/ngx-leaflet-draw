@@ -10,6 +10,9 @@ import { LeafletDrawDirective } from './core/leaflet-draw.directive';
 var LeafletDrawModule = (function () {
     function LeafletDrawModule() {
     }
+    LeafletDrawModule.forRoot = function () {
+        return { ngModule: LeafletModule, providers: [] };
+    };
     return LeafletDrawModule;
 }());
 LeafletDrawModule = __decorate([
@@ -22,10 +25,8 @@ LeafletDrawModule = __decorate([
         ],
         declarations: [
             LeafletDrawDirective
-        ],
-        providers: []
+        ]
     })
 ], LeafletDrawModule);
 export { LeafletDrawModule };
-
 //# sourceMappingURL=leaflet-draw.module.js.map
