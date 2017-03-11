@@ -18,7 +18,7 @@ import { LeafletDrawDirective } from './core/leaflet-draw.directive';
 export class LeafletDrawModule {
 
 	static forRoot(): ModuleWithProviders {
-		return { ngModule: LeafletModule, providers: [] };
+		return { ngModule: LeafletDrawModule, providers: [] };
 	}
 
 }

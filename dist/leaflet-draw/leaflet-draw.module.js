@@ -7,15 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { NgModule } from '@angular/core';
 import { LeafletModule } from '@asymmetrik/angular2-leaflet';
 import { LeafletDrawDirective } from './core/leaflet-draw.directive';
-var LeafletDrawModule = (function () {
+var LeafletDrawModule = LeafletDrawModule_1 = (function () {
     function LeafletDrawModule() {
     }
     LeafletDrawModule.forRoot = function () {
-        return { ngModule: LeafletModule, providers: [] };
+        return { ngModule: LeafletDrawModule_1, providers: [] };
     };
     return LeafletDrawModule;
 }());
-LeafletDrawModule = __decorate([
+LeafletDrawModule = LeafletDrawModule_1 = __decorate([
     NgModule({
         imports: [
             LeafletModule
@@ -29,4 +29,5 @@ LeafletDrawModule = __decorate([
     })
 ], LeafletDrawModule);
 export { LeafletDrawModule };
+var LeafletDrawModule_1;
 //# sourceMappingURL=leaflet-draw.module.js.map
