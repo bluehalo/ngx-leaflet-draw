@@ -1,4 +1,4 @@
-/*! @asymmetrik/angular2-leaflet-draw-1.2.0 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.*/
+/*! @asymmetrik/angular2-leaflet-draw-1.2.1 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@asymmetrik/angular2-leaflet'), require('leaflet')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@asymmetrik/angular2-leaflet', 'leaflet'], factory) :
@@ -77,15 +77,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-exports.LeafletDrawModule = (function () {
+exports.LeafletDrawModule = LeafletDrawModule_1 = (function () {
     function LeafletDrawModule() {
     }
     LeafletDrawModule.forRoot = function () {
-        return { ngModule: _asymmetrik_angular2Leaflet.LeafletModule, providers: [] };
+        return { ngModule: LeafletDrawModule_1, providers: [] };
     };
     return LeafletDrawModule;
 }());
-exports.LeafletDrawModule = __decorate([
+exports.LeafletDrawModule = LeafletDrawModule_1 = __decorate([
     _angular_core.NgModule({
         imports: [
             _asymmetrik_angular2Leaflet.LeafletModule
@@ -98,6 +98,7 @@ exports.LeafletDrawModule = __decorate([
         ]
     })
 ], exports.LeafletDrawModule);
+var LeafletDrawModule_1;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
