@@ -5,6 +5,8 @@
 > Leaflet Draw extension to the @asymmetrik/angular2-leaflet package for Angular 2
 > Provides Leaflet Draw integration into Angular 2 projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
 
+> Now supports Angular v4, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
+
 ## Table of Contents
 - [Install](#install)
 - [Usage](#usage)
