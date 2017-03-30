@@ -20,7 +20,14 @@ Install the package and its peer dependencies via npm:
 ```
 npm install leaflet
 npm install leaflet-draw
+npm install @asymmetrik/angular2-leaflet
 npm install @asymmetrik/angular2-leaflet-draw
+```
+
+If you intend to use this library in a typescript project (utilizing the typings), you will need to also install the leaflet typings via npm:
+```
+npm install @types/leaflet
+npm install @types/leaflet-draw
 ```
 
 If you want to run the demo, clone the repository, perform an ```npm install```, ```gulp dev``` and then go to http://localhost:9000/src/demo/index.html
@@ -30,7 +37,7 @@ If you want to run the demo, clone the repository, perform an ```npm install```,
 
 This plugin is used with the [Angular 2 Leaflet plugin](https://github.com/Asymmetrik/angular2-leaflet).
 
-To create a map, use the ```leaflet``` attribute directive.
+To create a map, use the ```leaflet``` attribute directive. This directive must appear first.
 You must specify an initial zoom/center and set of layers either via ```leafletOptions``` or by binding to ```leafletZoom```, ```leafletCenter```, and ```leafletLayers```.
 
 ```html
