@@ -93,7 +93,8 @@ gulp.task('rollup-js', () => {
 			external: [
 				'@angular/core',
 				'@asymmetrik/angular2-leaflet',
-				'leaflet'
+				'leaflet',
+				'leaflet-draw'
 			],
 			onwarn: (warning) => {
 				if ('THIS_IS_UNDEFINED' === warning.code) {
@@ -106,7 +107,7 @@ gulp.task('rollup-js', () => {
 			return bundle.write({
 				dest: path.posix.join(assets.dist.bundleDir, `${pkg.artifactName}.js`),
 				format: 'umd',
-				moduleName: 'angular2LeafletDraw',
+				moduleName: pkg.moduleName,
 				sourceMap: true,
 				banner: bannerString,
 				globals: {
