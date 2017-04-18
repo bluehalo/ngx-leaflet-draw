@@ -1,5 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import * as L from 'leaflet';
+import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
 var LeafletDrawDirective = (function () {
     function LeafletDrawDirective(leafletDirective) {

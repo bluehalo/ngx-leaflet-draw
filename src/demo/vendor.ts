@@ -26,6 +26,16 @@ import 'core-js/es7/reflect';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
+import 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+import 'leaflet-draw';
+import 'leaflet-draw/dist/leaflet.draw.css';
+
+// This addresses a weird thing with how Leaflet handles icon URLs. See README for details.
+import 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/images/marker-icon.png';
+
 
 // Angular2 Imports
 import '@angular/common';
@@ -35,17 +45,7 @@ import '@angular/platform-browser-dynamic';
 
 
 // Angular2 Third-Party
-import 'leaflet';
-import 'leaflet/dist/leaflet.css';
-
-import 'leaflet-draw';
-import 'leaflet-draw/dist/leaflet.draw.css';
 import '@asymmetrik/angular2-leaflet';
-
-
-// This addresses a weird thing with how Leaflet handles icon URLs. See README for details.
-import 'leaflet/dist/images/marker-shadow.png';
-import 'leaflet/dist/images/marker-icon.png';
 
 
 // Other Dependencies

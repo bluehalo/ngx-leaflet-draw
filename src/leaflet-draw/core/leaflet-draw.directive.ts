@@ -1,6 +1,7 @@
 import { Directive, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 
 import * as L from 'leaflet';
+import 'leaflet-draw';
 
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
 
