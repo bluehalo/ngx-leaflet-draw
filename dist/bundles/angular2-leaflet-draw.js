@@ -89,6 +89,7 @@ LeafletDrawModule.decorators = [
 LeafletDrawModule.ctorParameters = function () { return []; };
 
 exports.LeafletDrawModule = LeafletDrawModule;
+exports.LeafletDrawDirective = LeafletDrawDirective;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
