@@ -48,6 +48,8 @@ You must specify an initial zoom/center and set of layers either via ```leafletO
 </div>
 ```
 
+Finally, to initialize and configure the leaflet-draw plugin, use the following attribute directives:
+
 ### leafletDraw
 This attribute is an attribute directive that initiates the draw plugin. 
 
