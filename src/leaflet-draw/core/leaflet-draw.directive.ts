@@ -45,6 +45,10 @@ export class LeafletDrawDirective
 		});
 	}
 
+	ngOnDestroy() {
+		this.leafletDirective.getMap().removeControl(this.drawControl);
+	}
+
 	ngOnChanges(changes: { [key: string]: SimpleChange }) {
 		// No changes being handled currently
 	}

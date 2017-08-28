@@ -24,6 +24,9 @@ var LeafletDrawDirective = (function () {
             _this.featureGroup.addLayer(layer);
         });
     };
+    LeafletDrawDirective.prototype.ngOnDestroy = function () {
+        this.leafletDirective.getMap().removeControl(this.drawControl);
+    };
     LeafletDrawDirective.prototype.ngOnChanges = function (changes) {
         // No changes being handled currently
     };

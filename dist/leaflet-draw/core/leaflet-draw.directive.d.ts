@@ -11,6 +11,7 @@ export declare class LeafletDrawDirective implements OnChanges, OnInit {
     drawOptions: L.Control.DrawConstructorOptions;
     constructor(leafletDirective: LeafletDirective);
     ngOnInit(): void;
+    ngOnDestroy(): void;
     ngOnChanges(changes: {
         [key: string]: SimpleChange;
     }): void;
