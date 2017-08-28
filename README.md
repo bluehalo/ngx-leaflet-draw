@@ -54,15 +54,18 @@ How you include the stylesheet will depend on your specific setup.
 This project is exported using UMD and it includes typings.
 So, you shouldn't have to do anything special to use it if you're building your project in Typescript.
 Before you can use the module in your Angular 2+ app, you'll need to import it in your application.
+Note that you also need to import the angular2-leaflet module as well.
 
 For example, in your ```app.module.ts```, add:
  
 ```js
+import { LeafletModule } from '@asymmetrik/angular2-leaflet.module';
 import { LeafletDrawModule } from '@asymmetrik/angular2-leaflet-draw.module';
 
 ...
 imports: [
     ...
+    LeafletModule.forRoot(),
     LeafletDrawModule.forRoot()
 ]
 ...
@@ -73,7 +76,6 @@ imports: [
 ### Create and Configure a Map with the Draw Controls
 To create a map, use the ```leaflet``` attribute directive. This directive must appear first.
 You must specify an initial zoom/center and set of layers either via ```leafletOptions``` or by binding to ```leafletZoom```, ```leafletCenter```, and ```leafletLayers```.
-
 Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw control and configure it with ```leafletDrawOptions```.
 
 ```html
