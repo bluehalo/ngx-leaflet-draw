@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { LeafletModule } from '@asymmetrik/angular2-leaflet';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { LeafletDrawModule } from '../../../leaflet-draw/leaflet-draw.module';
 

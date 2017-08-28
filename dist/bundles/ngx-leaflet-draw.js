@@ -1,8 +1,8 @@
-/*! @asymmetrik/angular2-leaflet-draw - 2.4.2 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved. + */
+/*! @asymmetrik/ngx-leaflet-draw - 2.5.0 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved. + */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@asymmetrik/angular2-leaflet'), require('leaflet'), require('leaflet-draw')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@asymmetrik/angular2-leaflet', 'leaflet', 'leaflet-draw'], factory) :
-	(factory((global.angular2LeafletDraw = global.angular2LeafletDraw || {}),global.ng.core,global.angular2Leaflet,global.L));
+	(factory((global.ngxLeafletDraw = global.ngxLeafletDraw || {}),global.ng.core,global.angular2Leaflet,global.L));
 }(this, (function (exports,_angular_core,_asymmetrik_angular2Leaflet,L) { 'use strict';
 
 var LeafletDrawDirective = (function () {
@@ -97,4 +97,4 @@ exports.LeafletDrawDirective = LeafletDrawDirective;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=angular2-leaflet-draw.js.map
+//# sourceMappingURL=ngx-leaflet-draw.js.map
