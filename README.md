@@ -2,6 +2,8 @@
 
 [![Build Status][travis-image]][travis-url]
 
+**IMPORTANT NOTE: This package has been renamed to @asymmetrik/ngx-leaflet-draw**
+
 > Leaflet Draw extension to the @asymmetrik/angular2-leaflet package for Angular 2
 > Provides Leaflet Draw integration into Angular 2 projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
 
