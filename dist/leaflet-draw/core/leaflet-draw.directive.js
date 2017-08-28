@@ -1,7 +1,7 @@
 import { Directive, Input } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
-import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
+import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
 var LeafletDrawDirective = (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;

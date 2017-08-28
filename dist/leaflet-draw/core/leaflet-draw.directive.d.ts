@@ -3,7 +3,7 @@
 import { OnChanges, OnInit, SimpleChange } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
-import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/angular2-leaflet';
+import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
 export declare class LeafletDrawDirective implements OnChanges, OnInit {
     leafletDirective: LeafletDirectiveWrapper;
     drawControl: L.Control.Draw;

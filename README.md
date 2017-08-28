@@ -1,9 +1,14 @@
-# @asymmetrik/angular2-leaflet-draw
+# @asymmetrik/ngx-leaflet-draw
 
 [![Build Status][travis-image]][travis-url]
 
-> Leaflet Draw extension to the @asymmetrik/angular2-leaflet package for Angular 2
-> Provides Leaflet Draw integration into Angular 2 projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
+[travis-url]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw/
+[travis-image]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw.svg
+
+*IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```* 
+
+> Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular 2+
+> Provides Leaflet Draw integration into Angular 2+ projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
 
 > Now supports Angular v4, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
 
@@ -20,8 +25,8 @@ Install the package and its peer dependencies via npm:
 ```
 npm install leaflet
 npm install leaflet-draw
-npm install @asymmetrik/angular2-leaflet
-npm install @asymmetrik/angular2-leaflet-draw
+npm install @asymmetrik/ngx-leaflet
+npm install @asymmetrik/ngx-leaflet-draw
 ```
 
 If you intend to use this library in a typescript project (utilizing the typings), you will need to also install the leaflet typings via npm:
@@ -37,12 +42,12 @@ If you want to run the demo, clone the repository, perform an ```npm install```,
 To use this library, there are a handful of setup steps to go through that vary based on your app environment (e.g., Webpack, ngCli, SystemJS, etc.).
 Generally, the steps are:
 
-* Install Leaflet, Angular2 Leaflet, this library, and potentially the Leaflet and Leaflet-draw typings (see above).
+* Install Leaflet, ```ngx-leaflet```, this library, and potentially the Leaflet and Leaflet-draw typings (see above).
 * Import the Leaflet and Leaflet-draw stylesheet
 * Import the Leaflet and Leaflet-draw modules into your Angular project
 * Create and configure a map (see docs below and/or demo)
 
-For more details and examples, refer to the [Angular 2 Leaflet plugin README](https://github.com/Asymmetrik/angular2-leaflet).
+For more details and examples, refer to the [Angular 2+ Leaflet plugin README](https://github.com/Asymmetrik/ngx-leaflet).
 
 ### Import the Stylesheets
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
@@ -54,13 +59,13 @@ How you include the stylesheet will depend on your specific setup.
 This project is exported using UMD and it includes typings.
 So, you shouldn't have to do anything special to use it if you're building your project in Typescript.
 Before you can use the module in your Angular 2+ app, you'll need to import it in your application.
-Note that you also need to import the angular2-leaflet module as well.
+Note that you also need to import the ngx-leaflet module as well.
 
 For example, in your ```app.module.ts```, add:
  
 ```js
-import { LeafletModule } from '@asymmetrik/angular2-leaflet.module';
-import { LeafletDrawModule } from '@asymmetrik/angular2-leaflet-draw.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet.module';
+import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw.module';
 
 ...
 imports: [
@@ -150,6 +155,3 @@ See LICENSE in repository for details.
 **[Leaflet](http://leafletjs.com/)** Is an awesome mapping package.
 **[Leaflet.draw](https://github.com/Leaflet/Leaflet.draw)** Makes drawing shapes on maps super easy.
 
-
-[travis-url]: https://travis-ci.org/Asymmetrik/angular2-leaflet-draw/
-[travis-image]: https://travis-ci.org/Asymmetrik/angular2-leaflet-draw.svg

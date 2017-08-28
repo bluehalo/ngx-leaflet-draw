@@ -92,7 +92,7 @@ gulp.task('rollup-js', () => {
 			entry: path.posix.join(assets.dist.dir, '/index.js'),
 			external: [
 				'@angular/core',
-				'@asymmetrik/angular2-leaflet',
+				'@asymmetrik/ngx-leaflet',
 				'leaflet',
 				'leaflet-draw'
 			],
@@ -112,7 +112,7 @@ gulp.task('rollup-js', () => {
 				banner: bannerString,
 				globals: {
 					'@angular/core': 'ng.core',
-					'@asymmetrik/angular2-leaflet': 'angular2Leaflet',
+					'@asymmetrik/ngx-leaflet': 'ngxLeaflet',
 					'leaflet': 'L'
 				}
 			});
