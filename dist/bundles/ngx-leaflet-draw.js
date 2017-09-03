@@ -1,14 +1,14 @@
-/*! @asymmetrik/ngx-leaflet-draw - 2.5.0 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved. + */
+/*! @asymmetrik/ngx-leaflet-draw - 2.6.0 - Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved. + */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@asymmetrik/ngx-leaflet'), require('leaflet'), require('leaflet-draw')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@asymmetrik/ngx-leaflet', 'leaflet', 'leaflet-draw'], factory) :
-	(factory((global.ngxLeafletDraw = global.ngxLeafletDraw || {}),global.ng.core,global.ngxLeaflet,global.L));
-}(this, (function (exports,_angular_core,_asymmetrik_ngxLeaflet,L) { 'use strict';
+	(factory((global.ngxLeafletDraw = {}),global.ng.core,global.ngxLeaflet,global.L));
+}(this, (function (exports,core,ngxLeaflet,L) { 'use strict';
 
-var LeafletDrawDirective = (function () {
+var LeafletDrawDirective = /** @class */ (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;
-        this.leafletDirective = new _asymmetrik_ngxLeaflet.LeafletDirectiveWrapper(leafletDirective);
+        this.leafletDirective = new ngxLeaflet.LeafletDirectiveWrapper(leafletDirective);
     }
     LeafletDrawDirective.prototype.ngOnInit = function () {
         var _this = this;
@@ -52,44 +52,44 @@ var LeafletDrawDirective = (function () {
         }
         return options;
     };
+    LeafletDrawDirective.decorators = [
+        { type: core.Directive, args: [{
+                    selector: '[leafletDraw]'
+                },] },
+    ];
+    /** @nocollapse */
+    LeafletDrawDirective.ctorParameters = function () { return [
+        { type: ngxLeaflet.LeafletDirective, },
+    ]; };
+    LeafletDrawDirective.propDecorators = {
+        'drawOptions': [{ type: core.Input, args: ['leafletDrawOptions',] },],
+    };
     return LeafletDrawDirective;
 }());
-LeafletDrawDirective.decorators = [
-    { type: _angular_core.Directive, args: [{
-                selector: '[leafletDraw]'
-            },] },
-];
-/** @nocollapse */
-LeafletDrawDirective.ctorParameters = function () { return [
-    { type: _asymmetrik_ngxLeaflet.LeafletDirective, },
-]; };
-LeafletDrawDirective.propDecorators = {
-    'drawOptions': [{ type: _angular_core.Input, args: ['leafletDrawOptions',] },],
-};
 
-var LeafletDrawModule = (function () {
+var LeafletDrawModule = /** @class */ (function () {
     function LeafletDrawModule() {
     }
     LeafletDrawModule.forRoot = function () {
         return { ngModule: LeafletDrawModule, providers: [] };
     };
+    LeafletDrawModule.decorators = [
+        { type: core.NgModule, args: [{
+                    imports: [
+                        ngxLeaflet.LeafletModule
+                    ],
+                    exports: [
+                        LeafletDrawDirective
+                    ],
+                    declarations: [
+                        LeafletDrawDirective
+                    ]
+                },] },
+    ];
+    /** @nocollapse */
+    LeafletDrawModule.ctorParameters = function () { return []; };
     return LeafletDrawModule;
 }());
-LeafletDrawModule.decorators = [
-    { type: _angular_core.NgModule, args: [{
-                imports: [
-                    _asymmetrik_ngxLeaflet.LeafletModule
-                ],
-                exports: [
-                    LeafletDrawDirective
-                ],
-                declarations: [
-                    LeafletDrawDirective
-                ]
-            },] },
-];
-/** @nocollapse */
-LeafletDrawModule.ctorParameters = function () { return []; };
 
 exports.LeafletDrawModule = LeafletDrawModule;
 exports.LeafletDrawDirective = LeafletDrawDirective;

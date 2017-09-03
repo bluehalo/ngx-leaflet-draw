@@ -2,7 +2,7 @@ import { Directive, Input } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
-var LeafletDrawDirective = (function () {
+var LeafletDrawDirective = /** @class */ (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;
         this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
@@ -49,19 +49,19 @@ var LeafletDrawDirective = (function () {
         }
         return options;
     };
+    LeafletDrawDirective.decorators = [
+        { type: Directive, args: [{
+                    selector: '[leafletDraw]'
+                },] },
+    ];
+    /** @nocollapse */
+    LeafletDrawDirective.ctorParameters = function () { return [
+        { type: LeafletDirective, },
+    ]; };
+    LeafletDrawDirective.propDecorators = {
+        'drawOptions': [{ type: Input, args: ['leafletDrawOptions',] },],
+    };
     return LeafletDrawDirective;
 }());
 export { LeafletDrawDirective };
-LeafletDrawDirective.decorators = [
-    { type: Directive, args: [{
-                selector: '[leafletDraw]'
-            },] },
-];
-/** @nocollapse */
-LeafletDrawDirective.ctorParameters = function () { return [
-    { type: LeafletDirective, },
-]; };
-LeafletDrawDirective.propDecorators = {
-    'drawOptions': [{ type: Input, args: ['leafletDrawOptions',] },],
-};
 //# sourceMappingURL=leaflet-draw.directive.js.map

@@ -1,5 +1,3 @@
-/// <reference types="leaflet-draw" />
-/// <reference types="leaflet" />
 import { OnChanges, OnInit, SimpleChange } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';

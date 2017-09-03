@@ -40,7 +40,7 @@ export class LeafletDrawDirective
 
 		// Register the main handler for events coming from the draw plugin
 		this.leafletDirective.getMap().on(L.Draw.Event.CREATED, (e: any) => {
-			let layer = (e as L.DrawEvents.Created).layer;
+			const layer = (e as L.DrawEvents.Created).layer;
 			this.featureGroup.addLayer(layer);
 		});
 	}
