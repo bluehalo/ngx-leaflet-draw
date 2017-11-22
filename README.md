@@ -7,8 +7,8 @@
 
 *IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```* 
 
-> Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular 2+
-> Provides Leaflet Draw integration into Angular 2+ projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
+> Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
+> Provides Leaflet Draw integration into Angular.io (Angular 2+) projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
 
 > Now supports Angular v4, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
 
@@ -16,12 +16,14 @@
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
+- [Getting Help](#help)
 - [Contribute](#contribute)
 - [License](#license)
 - [Credits](#credits)
 
+
 ## Install
-Install the package and its peer dependencies via npm:
+Install the package and its peer dependencies via npm (or yarn):
 ```
 npm install leaflet
 npm install leaflet-draw
@@ -31,8 +33,8 @@ npm install @asymmetrik/ngx-leaflet-draw
 
 If you intend to use this library in a typescript project (utilizing the typings), you will need to also install the leaflet typings via npm:
 ```
-npm install @types/leaflet
-npm install @types/leaflet-draw
+npm install --save-dev @types/leaflet
+npm install --save-dev @types/leaflet-draw
 ```
 
 If you want to run the demo, clone the repository, perform an ```npm install```, ```gulp dev``` and then go to http://localhost:9000/src/demo/index.html
@@ -42,23 +44,25 @@ If you want to run the demo, clone the repository, perform an ```npm install```,
 To use this library, there are a handful of setup steps to go through that vary based on your app environment (e.g., Webpack, ngCli, SystemJS, etc.).
 Generally, the steps are:
 
-* Install Leaflet, ```ngx-leaflet```, this library, and potentially the Leaflet and Leaflet-draw typings (see above).
+* Follow the instructions to install and configure [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet)
+* Install this library and the Leaflet-draw typings (see above).
 * Import the Leaflet and Leaflet-draw stylesheet
-* Import the Leaflet and Leaflet-draw modules into your Angular project
+* Import the ngx-leaflet and ngx-leaflet-draw modules into your Angular project
 * Create and configure a map (see docs below and/or demo)
 
-For more details and examples, refer to the [Angular 2+ Leaflet plugin README](https://github.com/Asymmetrik/ngx-leaflet).
 
-### Import the Stylesheets
+### Import the Leaflet Stylesheet
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
 If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` abd ```./node_modules/leaflet-draw/dist/leaflet.draw.css```. 
-How you include the stylesheet will depend on your specific setup.
+How you include the stylesheet will depend on your specific setup. For examples, refer to the [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet) README
 
 
 ### Import Code Dependencies and Module
 This project is exported using UMD and it includes typings.
 So, you shouldn't have to do anything special to use it if you're building your project in Typescript.
-Before you can use the module in your Angular 2+ app, you'll need to import it in your application.
+
+#### Typescript Angular.io Module Import
+Before you can use the module in your Angular.io app, you'll need to import it in your application.
 Note that you also need to import the ngx-leaflet module as well.
 
 For example, in your ```app.module.ts```, add:
@@ -69,13 +73,18 @@ import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw.module';
 
 ...
 imports: [
-    ...
-    LeafletModule.forRoot(),
-    LeafletDrawModule.forRoot()
+   ...
+   LeafletModule.forRoot(),
+   LeafletDrawModule.forRoot()
 ]
 ...
 
 ```
+
+#### Not Using Typescript?
+You brave soul.
+The code is exported using UMD (bundles are in the ./dist dir) so you should be able to import is using whatever module system/builder you're using, even if you aren't using Typescript.
+
 
 
 ### Create and Configure a Map with the Draw Controls
@@ -92,7 +101,7 @@ Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw c
 ```
 
 #### leafletDraw
-This attribute is an attribute directive that initiates the draw plugin. 
+This is an attribute directive that initiates the leaflet draw plugin. 
 
 #### leafletDrawOptions
 Input binding for the options to be passed to the draw plugin upon creation.
@@ -100,21 +109,23 @@ These options are only currently processed at creation time.
 
 ```js
 drawOptions = {
-	position: 'topright',
-	draw: {
-		marker: {
-			icon: L.icon({
-				iconUrl: '2273e3d8ad9264b7daa5bdbf8e6b47f8.png',
-				shadowUrl: '44a526eed258222515aa21eaffd14a96.png'
-			})
-		},
-		polyline: false,
-		circle: {
-			shapeOptions: {
-				color: '#aaaaaa'
-			}
-		}
-	}
+   position: 'topright',
+   draw: {
+      marker: {
+         icon: L.icon({
+             iconSize: [ 25, 41 ],
+             iconAnchor: [ 13, 41 ],
+             iconUrl: 'assets/marker-icon.png',
+             shadowUrl: 'assets/marker-shadow.png'
+         })
+      },
+      polyline: false,
+      circle: {
+          shapeOptions: {
+              color: '#aaaaaa'
+          }
+      }
+   }
 };
 ```
 
@@ -124,7 +135,13 @@ Therefore, you can reference [their documentation](https://github.com/Leaflet/Le
 If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object. 
 
 
-#### Showing and Hiding the Draw Control
+### A Note About Markers
+If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
+The issue has to do with how Leaflet handles icon image loading.
+For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).  
+
+
+### Showing and Hiding the Draw Control
 If you want to toggle the draw control on and off, you can use the following approach:
 
 ```js
@@ -132,9 +149,9 @@ If you want to toggle the draw control on and off, you can use the following app
 <div leaflet style="height: 400px;"
      [leafletOptions]="options">
 
-	<div *ngIf="shown"
-	     leafletDraw
-	     [leafletDrawOptions]="drawOptions"></div>
+   <div *ngIf="shown"
+        leafletDraw
+        [leafletDrawOptions]="drawOptions"></div>
 </div>
 ```
 
@@ -143,8 +160,10 @@ When ngIf evaluates to false, the child element is removed from the map, which d
 When it evaluates to true, the child element is added to the map, which recreates the control.
 
 
+
 ## Contribute
-PRs accepted. If you are part of Asymmetrik, please make contributions on feature branches off of the ```develop``` branch. If you are outside of Asymmetrik, please fork our repo to make contributions.
+PRs accepted. If you are part of Asymmetrik, please make contributions on feature branches off of the ```develop``` branch.
+If you are outside of Asymmetrik, please fork our repo to make contributions and submit PRs against ```develop```.
 
 
 ## License
