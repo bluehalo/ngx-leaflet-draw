@@ -16,7 +16,6 @@
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
-- [Getting Help](#help)
 - [Contribute](#contribute)
 - [License](#license)
 - [Credits](#credits)
