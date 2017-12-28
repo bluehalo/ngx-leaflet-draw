@@ -128,8 +128,7 @@ module.exports = () => {
 		}),
 		new webpack.ContextReplacementPlugin(
 			/(.+)?angular(\\|\/)core(.+)?/,
-			path.posix.resolve('./src'),
-			{}
+			path.posix.resolve('./src')
 		)
 	);
 

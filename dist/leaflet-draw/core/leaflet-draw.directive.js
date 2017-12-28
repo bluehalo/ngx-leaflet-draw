@@ -1,4 +1,4 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
@@ -59,7 +59,7 @@ var LeafletDrawDirective = /** @class */ (function () {
         { type: LeafletDirective, },
     ]; };
     LeafletDrawDirective.propDecorators = {
-        'drawOptions': [{ type: Input, args: ['leafletDrawOptions',] },],
+        "drawOptions": [{ type: Input, args: ['leafletDrawOptions',] },],
     };
     return LeafletDrawDirective;
 }());

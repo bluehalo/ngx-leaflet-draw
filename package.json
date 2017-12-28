@@ -3,14 +3,14 @@
 	"artifactName": "ngx-leaflet-draw",
 	"moduleName": "ngxLeafletDraw",
 	"description": "Angular.io component for the draw plugin for Leaflet",
-	"version": "2.6.1",
-
+	"version": "2.7.0",
 	"author": "Asymmetrik, Ltd.",
 	"copyright": "Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.",
 	"license": "MIT",
 
 	"main": "dist/bundles/ngx-leaflet-draw.js",
 	"module": "dist/index.js",
+	"jsnext:main": "dist/index.js",
 	"typings": "dist/index.d.ts",
 
 	"repository": {
@@ -29,13 +29,13 @@
 	},
 
 	"devDependencies": {
-		"@angular/common": "4",
-		"@angular/compiler": "4",
-		"@angular/compiler-cli": "4",
-		"@angular/core": "4",
-		"@angular/forms": "4",
-		"@angular/platform-browser": "4",
-		"@angular/platform-browser-dynamic": "4",
+		"@angular/common": "5",
+		"@angular/compiler": "5",
+		"@angular/compiler-cli": "5",
+		"@angular/core": "5",
+		"@angular/forms": "5",
+		"@angular/platform-browser": "5",
+		"@angular/platform-browser-dynamic": "5",
 
 		"bootstrap": "3",
 
@@ -50,23 +50,22 @@
 
 		"rxjs": "5.5",
 		"zone.js": "0.8",
-		"@types/node": "6",
+		"@types/node": "8",
 
 		"merge2": "1.2",
-		"rollup": "0.51",
+		"rollup": "0.53",
 
 		"typescript": "2.6",
 		"tslint": "5.8",
 		"tslint-stylish": "2.1",
 
-		"webpack": "3.8",
+		"webpack": "3.10",
 		"webpack-dev-server": "2.9",
 		"angular2-template-loader": "0.6",
 		"awesome-typescript-loader": "3.4",
 		"css-loader": "0.28",
 		"file-loader": "1.1",
 		"html-loader": "0.5",
-		"node-sass": "4.7",
 		"resolve-url-loader": "2.2",
 		"sass-loader": "6.0",
 		"source-map-loader": "0.2",
@@ -84,7 +83,8 @@
 		"gulp-uglify": "3.0",
 		"gulp-util": "3.0",
 		"run-sequence": "2.2",
-		"through2": "2.0"
+		"through2": "2.0",
+		"node-sass": "4.7"
 
 	}
 }
