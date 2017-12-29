@@ -56,15 +56,10 @@ If you've installed via npm, you will need to load ```./node_modules/leaflet/dis
 How you include the stylesheet will depend on your specific setup. For examples, refer to the [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet) README
 
 
-<<<<<<< HEAD
 ### Import Code Dependencies and Module
 This project is exported using UMD and it includes typings.
 So, you shouldn't have to do anything special to use it if you're building your project in Typescript.
-=======
-* dependencies - These should generally be empty. These dependencies will get packaged with your module in NPM, which is probably not what you intend.
-* peerDependencies - Specify all of the runtime dependencies of the module that someone using it will need. This would include any Angular.io dependencies referenced from within your code and any third party dependencies on which you depend.
-* devDependencies - You can specify all of the dependencies needed to build, run, and test your code in this project.
->>>>>>> template/master
+
 
 #### Typescript Angular.io Module Import
 Before you can use the module in your Angular.io app, you'll need to import it in your application.
