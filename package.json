@@ -5,7 +5,7 @@
 	"description": "Angular.io component for the draw plugin for Leaflet",
 	"version": "3.0.0",
 	"author": "Asymmetrik, Ltd.",
-	"copyright": "Copyright Asymmetrik, Ltd. 2007-2017 - All Rights Reserved.",
+	"copyright": "Copyright Asymmetrik, Ltd. 2007-2018 - All Rights Reserved.",
 	"license": "MIT",
 
 	"main": "dist/bundles/ngx-leaflet-draw.js",
