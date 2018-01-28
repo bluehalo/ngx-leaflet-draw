@@ -52,7 +52,7 @@ Generally, the steps are:
 
 ### Import the Leaflet Stylesheet
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
-If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` abd ```./node_modules/leaflet-draw/dist/leaflet.draw.css```. 
+If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` and ```./node_modules/leaflet-draw/dist/leaflet.draw.css```. 
 How you include the stylesheet will depend on your specific setup. For examples, refer to the [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet) README
 
 
@@ -68,8 +68,8 @@ Note that you also need to import the ngx-leaflet module as well.
 For example, in your ```app.module.ts```, add:
  
 ```js
-import { LeafletModule } from '@asymmetrik/ngx-leaflet.module';
-import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
 
 ...
 imports: [
