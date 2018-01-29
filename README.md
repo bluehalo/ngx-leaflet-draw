@@ -68,8 +68,8 @@ Note that you also need to import the ngx-leaflet module as well.
 For example, in your ```app.module.ts```, add:
  
 ```js
-import { LeafletModule } from '@asymmetrik/ngx-leaflet.module';
-import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
 
 ...
 imports: [
