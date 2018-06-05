@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { Directive, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 
 import * as L from 'leaflet';
 import 'leaflet-draw';
@@ -18,6 +18,9 @@ export class LeafletDrawDirective
 	featureGroup: L.FeatureGroup;
 
 	@Input('leafletDrawOptions') drawOptions: L.Control.DrawConstructorOptions = null;
+
+	// Configure callback function for the map
+	@Output('leafletDrawReady') drawReady = new EventEmitter<L.Control.Draw>();
 
 	constructor(leafletDirective: LeafletDirective) {
 		this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
@@ -43,6 +46,9 @@ export class LeafletDrawDirective
 			const layer = (e as L.DrawEvents.Created).layer;
 			this.featureGroup.addLayer(layer);
 		});
+
+		// Notify others that the draw control has been created
+		this.drawReady.emit(this.drawControl);
 	}
 
 	ngOnDestroy() {
@@ -53,7 +59,11 @@ export class LeafletDrawDirective
 		// No changes being handled currently
 	}
 
-	initializeDrawOptions(options: L.Control.DrawConstructorOptions) {
+	public getDrawControl() {
+		return this.drawControl;
+	}
+
+	private initializeDrawOptions(options: L.Control.DrawConstructorOptions) {
 
 		// Ensure the options have a featureGroup
 		if (null == options) {
