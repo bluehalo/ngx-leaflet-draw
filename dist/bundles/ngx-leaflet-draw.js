@@ -1,4 +1,4 @@
-/*! @asymmetrik/ngx-leaflet-draw - 3.0.0 - Copyright Asymmetrik, Ltd. 2007-2018 - All Rights Reserved. + */
+/*! @asymmetrik/ngx-leaflet-draw - 3.1.0 - Copyright Asymmetrik, Ltd. 2007-2018 - All Rights Reserved. + */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@asymmetrik/ngx-leaflet'), require('leaflet'), require('leaflet-draw')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@asymmetrik/ngx-leaflet', 'leaflet', 'leaflet-draw'], factory) :
@@ -8,6 +8,8 @@
 var LeafletDrawDirective = /** @class */ (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;
+        // Configure callback function for the map
+        this.drawReady = new core.EventEmitter();
         this.leafletDirective = new ngxLeaflet.LeafletDirectiveWrapper(leafletDirective);
     }
     LeafletDrawDirective.prototype.ngOnInit = function () {
@@ -26,12 +28,17 @@ var LeafletDrawDirective = /** @class */ (function () {
             var layer = e.layer;
             _this.featureGroup.addLayer(layer);
         });
+        // Notify others that the draw control has been created
+        this.drawReady.emit(this.drawControl);
     };
     LeafletDrawDirective.prototype.ngOnDestroy = function () {
         this.leafletDirective.getMap().removeControl(this.drawControl);
     };
     LeafletDrawDirective.prototype.ngOnChanges = function (changes) {
         // No changes being handled currently
+    };
+    LeafletDrawDirective.prototype.getDrawControl = function () {
+        return this.drawControl;
     };
     LeafletDrawDirective.prototype.initializeDrawOptions = function (options) {
         // Ensure the options have a featureGroup
@@ -63,6 +70,7 @@ var LeafletDrawDirective = /** @class */ (function () {
     ]; };
     LeafletDrawDirective.propDecorators = {
         "drawOptions": [{ type: core.Input, args: ['leafletDrawOptions',] },],
+        "drawReady": [{ type: core.Output, args: ['leafletDrawReady',] },],
     };
     return LeafletDrawDirective;
 }());
@@ -86,8 +94,6 @@ var LeafletDrawModule = /** @class */ (function () {
                     ]
                 },] },
     ];
-    /** @nocollapse */
-    LeafletDrawModule.ctorParameters = function () { return []; };
     return LeafletDrawModule;
 }());
 

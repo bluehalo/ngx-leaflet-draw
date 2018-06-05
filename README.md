@@ -16,6 +16,7 @@
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
+- [Changelog](#changelog)
 - [Contribute](#contribute)
 - [License](#license)
 - [Credits](#credits)
@@ -133,11 +134,77 @@ Therefore, you can reference [their documentation](https://github.com/Leaflet/Le
 
 If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object. 
 
+### Getting a Reference to the Draw Control
+Occasionally, you may need to directly access the Leaflet Draw Control instance.
+For example, to dynamically change settings or change its behavior.
+There are a couple of different ways to achieve this depending on what you're trying to do.
 
-### A Note About Markers
-If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
-The issue has to do with how Leaflet handles icon image loading.
-For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).  
+The easiest and most flexible way is to use the output binding ```leafletDrawReady```.
+This output is invoked after the map is created, the argument of the event being the ```Control.Draw``` instance.
+
+The second is to get a reference to the leaflet draw directive itself - and there are a couple of ways to do this.
+With a reference to the directive, you can invoke the ```getDrawControl()``` function to get a reference to the ```Control.Draw``` instance.
+
+
+#### leafletDrawReady
+This output is emitted when once when the Leaflet Draw Control is initially created inside of the Leaflet Draw directive.
+The event will only fire when the Control exists and is ready for manipulation.
+
+```html
+<div leaflet
+     leafletDraw
+     [leafletOptions]="options"
+     [leafletDrawOptions]="drawOptions"
+     (leafletDrawReady)="onDrawReady($event)">
+</div>
+```
+
+```js
+onDrawReady(drawControl: Draw.Control) {
+   // Do stuff with map
+}
+```
+
+This method of getting the draw control makes the most sense if you are using the Leaflet directive inside your own component
+and just need to add some limited functionality or register some event handlers.
+
+
+#### Inject LeafletDrawDirective into your Component
+In Angular.io, directives are injectable the same way that Services are.
+This means that you can create your own component or directive and inject the ```LeafletDrawDirective``` into it.
+This will only work if your custom component/directive exists on the same DOM element and is ordered after the injected LeafletDrawDirective, or if it is on a child DOM element.
+
+```html
+<!-- On the same DOM element -->
+<div leaflet leafletDraw myCustomDirective>
+</div>
+
+<!-- On a child DOM element -->
+<div leaflet leafletDraw>
+   <div myCustomDirective></div>
+</div>
+```
+
+```js
+@Directive({
+   selector: '[myCustomDirective]'
+})
+export class MyCustomDirective {
+   leafletDrawDirective: LeafletDrawDirective;
+	
+   constructor(leafletDrawDirective: LeafletDrawDirective) {
+      this.leafletDrawDirective = leafletDrawDirective;
+   }
+
+   someFunction() {
+      if (null != this.leafletDrawDirective.getDrawControl()) {
+         // Do stuff with the draw control
+      }
+   }
+}
+```
+
+The benefit of this approach is it's a bit cleaner if you're interested in adding some reusable capability to the existing leaflet draw directive.
 
 
 ### Showing and Hiding the Draw Control
@@ -158,6 +225,24 @@ You can place the leafletDraw directive on a child element and then use *ngIf to
 When ngIf evaluates to false, the child element is removed from the map, which destroys the control.
 When it evaluates to true, the child element is added to the map, which recreates the control.
 
+
+### A Note About Markers
+If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
+The issue has to do with how Leaflet handles icon image loading.
+For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).  
+
+
+## Changelog
+
+#### 3.1.0
+Added the ```leafletDrawReady``` output. This output is used to expose the Leaflet Draw Control.
+
+### 3.0
+Support for Angular 5. Also cleaned up some of the functionality related to Angular zone management.
+Added documentation to README on Zone management.
+
+### 2.0
+Support for Angular 4.
 
 
 ## Contribute

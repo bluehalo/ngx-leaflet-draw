@@ -1,4 +1,4 @@
-import { OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { EventEmitter, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
@@ -7,11 +7,13 @@ export declare class LeafletDrawDirective implements OnChanges, OnInit {
     drawControl: L.Control.Draw;
     featureGroup: L.FeatureGroup;
     drawOptions: L.Control.DrawConstructorOptions;
+    drawReady: EventEmitter<L.Control.Draw>;
     constructor(leafletDirective: LeafletDirective);
     ngOnInit(): void;
     ngOnDestroy(): void;
     ngOnChanges(changes: {
         [key: string]: SimpleChange;
     }): void;
-    initializeDrawOptions(options: L.Control.DrawConstructorOptions): L.Control.DrawConstructorOptions;
+    getDrawControl(): L.Control.Draw;
+    private initializeDrawOptions(options);
 }

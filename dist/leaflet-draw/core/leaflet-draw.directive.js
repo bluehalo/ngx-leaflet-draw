@@ -1,10 +1,12 @@
-import { Directive, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { Directive, EventEmitter, Input, Output } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
 var LeafletDrawDirective = /** @class */ (function () {
     function LeafletDrawDirective(leafletDirective) {
         this.drawOptions = null;
+        // Configure callback function for the map
+        this.drawReady = new EventEmitter();
         this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
     }
     LeafletDrawDirective.prototype.ngOnInit = function () {
@@ -23,12 +25,17 @@ var LeafletDrawDirective = /** @class */ (function () {
             var layer = e.layer;
             _this.featureGroup.addLayer(layer);
         });
+        // Notify others that the draw control has been created
+        this.drawReady.emit(this.drawControl);
     };
     LeafletDrawDirective.prototype.ngOnDestroy = function () {
         this.leafletDirective.getMap().removeControl(this.drawControl);
     };
     LeafletDrawDirective.prototype.ngOnChanges = function (changes) {
         // No changes being handled currently
+    };
+    LeafletDrawDirective.prototype.getDrawControl = function () {
+        return this.drawControl;
     };
     LeafletDrawDirective.prototype.initializeDrawOptions = function (options) {
         // Ensure the options have a featureGroup
@@ -60,6 +67,7 @@ var LeafletDrawDirective = /** @class */ (function () {
     ]; };
     LeafletDrawDirective.propDecorators = {
         "drawOptions": [{ type: Input, args: ['leafletDrawOptions',] },],
+        "drawReady": [{ type: Output, args: ['leafletDrawReady',] },],
     };
     return LeafletDrawDirective;
 }());
