@@ -1,24 +1,12 @@
-import { Directive, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, NgZone } from '@angular/core';
+import { Directive, EventEmitter, Input, NgZone, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 
 import * as L from 'leaflet';
 import 'leaflet-draw';
 
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
-
 // ngx-leaflet doesnt export leaflet util, so duplicating the handleEvent function here.
-export class LeafletDrawUtil {
+import { LeafletDrawUtil } from './leaflet-draw-util';
 
-	static handleEvent<T>(zone: NgZone, eventEmitter: EventEmitter<T>, event: T) {
-
-		// Don't want to emit if there are no observers
-		if (0 < eventEmitter.observers.length) {
-			zone.run(() => {
-				eventEmitter.emit(event);
-			});
-		}
-
-	}
-}
 
 @Directive({
 	selector: '[leafletDraw]'
@@ -53,7 +41,6 @@ export class LeafletDrawDirective
 	@Output('drawToolbarOpened') drawToolbarOpened = new EventEmitter<L.DrawEvents.ToolbarOpened>();
 	@Output('drawToolbarClosed') drawToolbarClosed = new EventEmitter<L.DrawEvents.ToolbarClosed>();
 	@Output('drawMarkerContext') drawMarkerContext = new EventEmitter<L.DrawEvents.MarkerContext>();
-	
 
 	constructor(leafletDirective: LeafletDirective, private zone: NgZone) {
 		this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
@@ -75,7 +62,7 @@ export class LeafletDrawDirective
 		this.leafletDirective.getMap().addControl(this.drawControl);
 
 		// Register the main handler for events coming from the draw plugin
-		let map = this.leafletDirective.getMap();
+		const map = this.leafletDirective.getMap();
 		map.on(L.Draw.Event.CREATED, (e: any) => {
 			const layer = (e as L.DrawEvents.Created).layer;
 			this.featureGroup.addLayer(layer);

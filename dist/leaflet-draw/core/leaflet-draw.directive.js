@@ -1,25 +1,8 @@
-import { Directive, EventEmitter, Input, Output, NgZone } from '@angular/core';
+import { Directive, EventEmitter, Input, NgZone, Output } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
-// ngx-leaflet doesnt export leaflet util, so duplicating the handleEvent function here.
-var 
-// ngx-leaflet doesnt export leaflet util, so duplicating the handleEvent function here.
-LeafletDrawUtil = /** @class */ (function () {
-    function LeafletDrawUtil() {
-    }
-    LeafletDrawUtil.handleEvent = function (zone, eventEmitter, event) {
-        // Don't want to emit if there are no observers
-        if (0 < eventEmitter.observers.length) {
-            zone.run(function () {
-                eventEmitter.emit(event);
-            });
-        }
-    };
-    return LeafletDrawUtil;
-}());
-// ngx-leaflet doesnt export leaflet util, so duplicating the handleEvent function here.
-export { LeafletDrawUtil };
+import { LeafletDrawUtil } from './leaflet-draw-util';
 var LeafletDrawDirective = /** @class */ (function () {
     function LeafletDrawDirective(leafletDirective, zone) {
         this.zone = zone;

@@ -1,10 +1,7 @@
-import { EventEmitter, OnChanges, OnInit, SimpleChange, NgZone } from '@angular/core';
+import { EventEmitter, NgZone, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
-export declare class LeafletDrawUtil {
-    static handleEvent<T>(zone: NgZone, eventEmitter: EventEmitter<T>, event: T): void;
-}
 export declare class LeafletDrawDirective implements OnChanges, OnInit {
     private zone;
     leafletDirective: LeafletDirectiveWrapper;
