@@ -8,7 +8,9 @@
 			<div leaflet style="height: 400px;"
 			     leafletDraw
 			     [leafletOptions]="options"
-			     [leafletDrawOptions]="drawOptions">
+			     [leafletDrawOptions]="drawOptions"
+			     (leafletDrawCreated)="onDrawCreated($event)"
+			     (leafletDrawStart)="onDrawStart($event)">
 			</div>
 
 		</div>

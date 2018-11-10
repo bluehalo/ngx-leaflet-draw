@@ -134,6 +134,28 @@ Therefore, you can reference [their documentation](https://github.com/Leaflet/Le
 
 If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object. 
 
+### Draw Events
+This leaflet draw plugin exposes the `L.Draw.Event`s found in the [leaflet draw documentation](http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html#l-draw-event).
+For a working example, check out the the demo.
+
+The following events are provided:
+* ```(leafletDrawCreated)```
+* ```(leafletDrawEdited)```
+* ```(leafletDrawDeleted)```
+* ```(leafletDrawStart)```
+* ```(leafletDrawStop)```
+* ```(leafletDrawVertex)```
+* ```(leafletDrawEditStart)```
+* ```(leafletDrawEditMove)```
+* ```(leafletDrawEditResize)```
+* ```(leafletDrawEditVertex)```
+* ```(leafletDrawEditStop)```
+* ```(leafletDrawDeleteStart)```
+* ```(leafletDrawDeleteStop)```
+* ```(leafletDrawToolbarOpened)```
+* ```(leafletDrawToolbarClosed)```
+* ```(leafletDrawMarkerContext)```
+
 ### Getting a Reference to the Draw Control
 Occasionally, you may need to directly access the Leaflet Draw Control instance.
 For example, to dynamically change settings or change its behavior.
@@ -233,6 +255,9 @@ For more details on how to set this up, reference the README from [@asymmetrik/n
 
 
 ## Changelog
+
+#### 3.2.0
+Added 
 
 #### 3.1.0
 Added the ```leafletDrawReady``` output. This output is used to expose the Leaflet Draw Control.

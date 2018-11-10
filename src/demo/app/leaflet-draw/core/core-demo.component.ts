@@ -30,4 +30,14 @@ export class LeafletDrawCoreDemoComponent {
 		}
 	};
 
+	public onDrawCreated(e: any) {
+		// tslint:disable-next-line:no-console
+		console.log('Draw Created Event!');
+	}
+
+	public onDrawStart(e: any) {
+		// tslint:disable-next-line:no-console
+		console.log('Draw Started Event!');
+	}
+
 }

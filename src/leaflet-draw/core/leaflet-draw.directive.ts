@@ -1,9 +1,10 @@
-import { Directive, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
+import { Directive, EventEmitter, Input, NgZone, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 
 import * as L from 'leaflet';
 import 'leaflet-draw';
 
 import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
+import { LeafletDrawUtil } from './leaflet-draw-util';
 
 
 @Directive({
@@ -22,7 +23,25 @@ export class LeafletDrawDirective
 	// Configure callback function for the map
 	@Output('leafletDrawReady') drawReady = new EventEmitter<L.Control.Draw>();
 
-	constructor(leafletDirective: LeafletDirective) {
+	// Draw Events
+	@Output('leafletDrawCreated') onDrawCreated = new EventEmitter<L.DrawEvents.Created>();
+	@Output('leafletDrawEdited') onDrawEdited = new EventEmitter<L.DrawEvents.Edited>();
+	@Output('leafletDrawDeleted') onDrawDeleted = new EventEmitter<L.DrawEvents.Deleted>();
+	@Output('leafletDrawStart') onDrawStart = new EventEmitter<L.DrawEvents.DrawStart>();
+	@Output('leafletDrawStop') onDrawStop = new EventEmitter<L.DrawEvents.DrawStop>();
+	@Output('leafletDrawVertex') onDrawVertex = new EventEmitter<L.DrawEvents.DrawVertex>();
+	@Output('leafletDrawEditStart') onDrawEditStart = new EventEmitter<L.DrawEvents.EditStart>();
+	@Output('leafletDrawEditMove') onDrawEditMove = new EventEmitter<L.DrawEvents.EditMove>();
+	@Output('leafletDrawEditResize') onDrawEditResize = new EventEmitter<L.DrawEvents.EditResize>();
+	@Output('leafletDrawEditVertex') onDrawEditVertex = new EventEmitter<L.DrawEvents.EditVertex>();
+	@Output('leafletDrawEditStop') onDrawEditStop = new EventEmitter<L.DrawEvents.EditStop>();
+	@Output('leafletDrawDeleteStart') onDrawDeleteStart = new EventEmitter<L.DrawEvents.DeleteStart>();
+	@Output('leafletDrawDeleteStop') onDrawDeleteStop = new EventEmitter<L.DrawEvents.DeleteStop>();
+	@Output('leafletDrawToolbarOpened') onDrawToolbarOpened = new EventEmitter<L.DrawEvents.ToolbarOpened>();
+	@Output('leafletDrawToolbarClosed') onDrawToolbarClosed = new EventEmitter<L.DrawEvents.ToolbarClosed>();
+	@Output('leafletDrawMarkerContext') onDrawMarkerContext = new EventEmitter<L.DrawEvents.MarkerContext>();
+
+	constructor(leafletDirective: LeafletDirective, private zone: NgZone) {
 		this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
 	}
 
@@ -42,10 +61,28 @@ export class LeafletDrawDirective
 		this.leafletDirective.getMap().addControl(this.drawControl);
 
 		// Register the main handler for events coming from the draw plugin
-		this.leafletDirective.getMap().on(L.Draw.Event.CREATED, (e: any) => {
+		const map = this.leafletDirective.getMap();
+		map.on(L.Draw.Event.CREATED, (e: any) => {
 			const layer = (e as L.DrawEvents.Created).layer;
 			this.featureGroup.addLayer(layer);
+			LeafletDrawUtil.handleEvent(this.zone, this.onDrawCreated, e);
 		});
+
+		// add draw event pass throughs
+		map.on(L.Draw.Event.EDITED, (e: L.DrawEvents.Edited) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEdited, e));
+		map.on(L.Draw.Event.DELETED, (e: L.DrawEvents.Deleted) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawDeleted, e));
+		map.on(L.Draw.Event.DRAWSTART, (e: L.DrawEvents.DrawStart) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawStart, e));
+		map.on(L.Draw.Event.DRAWSTOP, (e: L.DrawEvents.DrawStop) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawStop, e));
+		map.on(L.Draw.Event.EDITSTART, (e: L.DrawEvents.EditStart) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditStart, e));
+		map.on(L.Draw.Event.EDITMOVE, (e: L.DrawEvents.EditMove) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditMove, e));
+		map.on(L.Draw.Event.EDITRESIZE, (e: L.DrawEvents.EditResize) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditResize, e));
+		map.on(L.Draw.Event.EDITVERTEX, (e: L.DrawEvents.EditVertex) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditVertex, e));
+		map.on(L.Draw.Event.EDITSTOP, (e: L.DrawEvents.EditStop) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditStop, e));
+		map.on(L.Draw.Event.DELETESTART, (e: L.DrawEvents.DeleteStart) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawDeleteStart, e));
+		map.on(L.Draw.Event.DELETESTOP, (e: L.DrawEvents.DeleteStop) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawDeleteStop, e));
+		map.on(L.Draw.Event.TOOLBAROPENED, (e: L.DrawEvents.ToolbarOpened) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawToolbarOpened, e));
+		map.on(L.Draw.Event.TOOLBARCLOSED, (e: L.DrawEvents.ToolbarClosed) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawToolbarClosed, e));
+
 
 		// Notify others that the draw control has been created
 		this.drawReady.emit(this.drawControl);
