@@ -30,4 +30,12 @@ export class LeafletDrawCoreDemoComponent {
 		}
 	};
 
+	public onDrawCreated(e: any) {
+		alert('Draw Created!');
+	}
+
+	public onDrawStart(e: any) {
+		alert('Draw Started!');
+	}
+
 }
