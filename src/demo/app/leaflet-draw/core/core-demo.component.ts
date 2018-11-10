@@ -31,11 +31,13 @@ export class LeafletDrawCoreDemoComponent {
 	};
 
 	public onDrawCreated(e: any) {
-		alert('Draw Created!');
+		// tslint:disable-next-line:no-console
+		console.log('Draw Created Event!');
 	}
 
 	public onDrawStart(e: any) {
-		alert('Draw Started!');
+		// tslint:disable-next-line:no-console
+		console.log('Draw Started Event!');
 	}
 
 }

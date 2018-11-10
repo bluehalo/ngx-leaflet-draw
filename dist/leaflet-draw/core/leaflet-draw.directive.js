@@ -10,22 +10,22 @@ var LeafletDrawDirective = /** @class */ (function () {
         // Configure callback function for the map
         this.drawReady = new EventEmitter();
         // Draw Events
-        this.drawCreated = new EventEmitter();
-        this.drawEdited = new EventEmitter();
-        this.drawDeleted = new EventEmitter();
-        this.drawStart = new EventEmitter();
-        this.drawStop = new EventEmitter();
-        this.drawVertex = new EventEmitter();
-        this.drawEditStart = new EventEmitter();
-        this.drawEditMove = new EventEmitter();
-        this.drawEditResize = new EventEmitter();
-        this.drawEditVertex = new EventEmitter();
-        this.drawEditStop = new EventEmitter();
-        this.drawDeleteStart = new EventEmitter();
-        this.drawDeleteStop = new EventEmitter();
-        this.drawToolbarOpened = new EventEmitter();
-        this.drawToolbarClosed = new EventEmitter();
-        this.drawMarkerContext = new EventEmitter();
+        this.onDrawCreated = new EventEmitter();
+        this.onDrawEdited = new EventEmitter();
+        this.onDrawDeleted = new EventEmitter();
+        this.onDrawStart = new EventEmitter();
+        this.onDrawStop = new EventEmitter();
+        this.onDrawVertex = new EventEmitter();
+        this.onDrawEditStart = new EventEmitter();
+        this.onDrawEditMove = new EventEmitter();
+        this.onDrawEditResize = new EventEmitter();
+        this.onDrawEditVertex = new EventEmitter();
+        this.onDrawEditStop = new EventEmitter();
+        this.onDrawDeleteStart = new EventEmitter();
+        this.onDrawDeleteStop = new EventEmitter();
+        this.onDrawToolbarOpened = new EventEmitter();
+        this.onDrawToolbarClosed = new EventEmitter();
+        this.onDrawMarkerContext = new EventEmitter();
         this.leafletDirective = new LeafletDirectiveWrapper(leafletDirective);
     }
     LeafletDrawDirective.prototype.ngOnInit = function () {
@@ -44,23 +44,22 @@ var LeafletDrawDirective = /** @class */ (function () {
         map.on(L.Draw.Event.CREATED, function (e) {
             var layer = e.layer;
             _this.featureGroup.addLayer(layer);
-            LeafletDrawUtil.handleEvent(_this.zone, _this.drawCreated, e);
+            LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawCreated, e);
         });
         // add draw event pass throughs
-        map.on(L.Draw.Event.EDITED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawEdited, e); });
-        map.on(L.Draw.Event.DELETED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawDeleted, e); });
-        map.on(L.Draw.Event.DRAWSTART, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawStart, e); });
-        map.on(L.Draw.Event.DRAWSTOP, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawStop, e); });
-        map.on(L.Draw.Event.EDITSTART, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawEditStart, e); });
-        map.on(L.Draw.Event.EDITMOVE, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawEditMove, e); });
-        map.on(L.Draw.Event.EDITRESIZE, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawEditResize, e); });
-        map.on(L.Draw.Event.EDITVERTEX, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawEditVertex, e); });
-        map.on(L.Draw.Event.EDITSTOP, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawEditStop, e); });
-        map.on(L.Draw.Event.DELETESTART, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawDeleteStart, e); });
-        map.on(L.Draw.Event.DELETESTOP, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawDeleteStop, e); });
-        map.on(L.Draw.Event.TOOLBAROPENED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawToolbarOpened, e); });
-        map.on(L.Draw.Event.TOOLBARCLOSED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.drawToolbarClosed, e); });
-        // map.on(L.Draw.Event.TOOLBARCONTEXT, (e: L.DrawEvents.MarkerContext) => LeafletDrawUtil.handleEvent(this.zone, this.drawMarkerContext, e));
+        map.on(L.Draw.Event.EDITED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawEdited, e); });
+        map.on(L.Draw.Event.DELETED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawDeleted, e); });
+        map.on(L.Draw.Event.DRAWSTART, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawStart, e); });
+        map.on(L.Draw.Event.DRAWSTOP, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawStop, e); });
+        map.on(L.Draw.Event.EDITSTART, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawEditStart, e); });
+        map.on(L.Draw.Event.EDITMOVE, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawEditMove, e); });
+        map.on(L.Draw.Event.EDITRESIZE, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawEditResize, e); });
+        map.on(L.Draw.Event.EDITVERTEX, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawEditVertex, e); });
+        map.on(L.Draw.Event.EDITSTOP, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawEditStop, e); });
+        map.on(L.Draw.Event.DELETESTART, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawDeleteStart, e); });
+        map.on(L.Draw.Event.DELETESTOP, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawDeleteStop, e); });
+        map.on(L.Draw.Event.TOOLBAROPENED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawToolbarOpened, e); });
+        map.on(L.Draw.Event.TOOLBARCLOSED, function (e) { return LeafletDrawUtil.handleEvent(_this.zone, _this.onDrawToolbarClosed, e); });
         // Notify others that the draw control has been created
         this.drawReady.emit(this.drawControl);
     };
@@ -105,22 +104,22 @@ var LeafletDrawDirective = /** @class */ (function () {
     LeafletDrawDirective.propDecorators = {
         "drawOptions": [{ type: Input, args: ['leafletDrawOptions',] },],
         "drawReady": [{ type: Output, args: ['leafletDrawReady',] },],
-        "drawCreated": [{ type: Output, args: ['drawCreated',] },],
-        "drawEdited": [{ type: Output, args: ['drawEdited',] },],
-        "drawDeleted": [{ type: Output, args: ['drawDeleted',] },],
-        "drawStart": [{ type: Output, args: ['drawStart',] },],
-        "drawStop": [{ type: Output, args: ['drawStop',] },],
-        "drawVertex": [{ type: Output, args: ['drawVertex',] },],
-        "drawEditStart": [{ type: Output, args: ['drawEditStart',] },],
-        "drawEditMove": [{ type: Output, args: ['drawEditMove',] },],
-        "drawEditResize": [{ type: Output, args: ['drawEditResize',] },],
-        "drawEditVertex": [{ type: Output, args: ['drawEditVertex',] },],
-        "drawEditStop": [{ type: Output, args: ['drawEditStop',] },],
-        "drawDeleteStart": [{ type: Output, args: ['drawDeleteStart',] },],
-        "drawDeleteStop": [{ type: Output, args: ['drawDeleteStop',] },],
-        "drawToolbarOpened": [{ type: Output, args: ['drawToolbarOpened',] },],
-        "drawToolbarClosed": [{ type: Output, args: ['drawToolbarClosed',] },],
-        "drawMarkerContext": [{ type: Output, args: ['drawMarkerContext',] },],
+        "onDrawCreated": [{ type: Output, args: ['leafletDrawCreated',] },],
+        "onDrawEdited": [{ type: Output, args: ['leafletDrawEdited',] },],
+        "onDrawDeleted": [{ type: Output, args: ['leafletDrawDeleted',] },],
+        "onDrawStart": [{ type: Output, args: ['leafletDrawStart',] },],
+        "onDrawStop": [{ type: Output, args: ['leafletDrawStop',] },],
+        "onDrawVertex": [{ type: Output, args: ['leafletDrawVertex',] },],
+        "onDrawEditStart": [{ type: Output, args: ['leafletDrawEditStart',] },],
+        "onDrawEditMove": [{ type: Output, args: ['leafletDrawEditMove',] },],
+        "onDrawEditResize": [{ type: Output, args: ['leafletDrawEditResize',] },],
+        "onDrawEditVertex": [{ type: Output, args: ['leafletDrawEditVertex',] },],
+        "onDrawEditStop": [{ type: Output, args: ['leafletDrawEditStop',] },],
+        "onDrawDeleteStart": [{ type: Output, args: ['leafletDrawDeleteStart',] },],
+        "onDrawDeleteStop": [{ type: Output, args: ['leafletDrawDeleteStop',] },],
+        "onDrawToolbarOpened": [{ type: Output, args: ['leafletDrawToolbarOpened',] },],
+        "onDrawToolbarClosed": [{ type: Output, args: ['leafletDrawToolbarClosed',] },],
+        "onDrawMarkerContext": [{ type: Output, args: ['leafletDrawMarkerContext',] },],
     };
     return LeafletDrawDirective;
 }());

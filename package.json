@@ -15,6 +15,10 @@
 		"type": "git",
 		"url": "https://github.com/Asymmetrik/ngx-leaflet-draw.git"
 	},
+	"scripts": {
+		"build": "gulp build",
+		"start": "gulp dev"
+	},
 	"peerDependencies": {
 		"@angular/core": ">=5",
 		"@angular/common": ">=5",
