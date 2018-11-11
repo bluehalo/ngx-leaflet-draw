@@ -8,9 +8,9 @@
 *IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```* 
 
 > Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
-> Provides Leaflet Draw integration into Angular.io (v2+) projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
+> Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 0.4.x
 
-> Now supports Angular v5, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
+> Now supports Angular v7, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
 
 ## Table of Contents
 - [Install](#install)
@@ -37,7 +37,7 @@ npm install --save-dev @types/leaflet
 npm install --save-dev @types/leaflet-draw
 ```
 
-If you want to run the demo, clone the repository, perform an ```npm install```, ```gulp dev``` and then go to http://localhost:9000/src/demo/index.html
+If you want to run the demo, clone the repository, perform an ```npm install```, ```npm run start``` and then go to http://localhost:9000/src/demo/index.html
 
 
 ## Usage
