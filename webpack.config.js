@@ -113,7 +113,7 @@ module.exports = () => {
 			{ test: /\.scss$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ] },
 
 			// Image file loader
-			{ test: /\.png$/, use: 'url-loader?limit=10000&mimetype=image/png' },
+			{ test: /\.png$/, use: 'file-loader?mimetype=image/png' },
 			{ test: /\.(gif|jpg|jpeg)$/, use: 'url-loader?limit=10000' },
 
 			// Font file loader (mostly for bootstrap/font-awesome)

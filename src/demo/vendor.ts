@@ -12,7 +12,6 @@ import 'core-js/es7/reflect';
 
 // Global Imports
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import 'leaflet';
 import 'leaflet/dist/leaflet.css';

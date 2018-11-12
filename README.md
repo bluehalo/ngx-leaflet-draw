@@ -236,7 +236,6 @@ If you want to toggle the draw control on and off, you can use the following app
 <div leaflet style="height: 400px;"
      [leafletOptions]="options">
 
-<<<<<<< HEAD
    <div *ngIf="shown"
         leafletDraw
         [leafletDrawOptions]="drawOptions"></div>
