@@ -151,6 +151,12 @@ module.exports = () => {
 			filename: 'webpack-stats.json',
 			fields: null
 		}),
+		// Stats writer generates a file with webpack stats that can be analyzed at https://chrisbateman.github.io/webpack-visualizer/
+		new StatsWriterPlugin({
+			chunkModules: true,
+			filename: 'webpack-stats.json',
+			fields: null
+		}),
 		new webpack.ContextReplacementPlugin(
 			/(.+)?angular(\\|\/)core(.+)?/,
 			path.posix.resolve('./src')
