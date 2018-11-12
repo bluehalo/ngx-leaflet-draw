@@ -3,8 +3,7 @@ import { Directive, EventEmitter, Input, NgZone, OnChanges, OnInit, Output, Simp
 import * as L from 'leaflet';
 import 'leaflet-draw';
 
-import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
-import { LeafletDrawUtil } from './leaflet-draw-util';
+import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
 
 
 @Directive({
@@ -65,23 +64,23 @@ export class LeafletDrawDirective
 		map.on(L.Draw.Event.CREATED, (e: any) => {
 			const layer = (e as L.DrawEvents.Created).layer;
 			this.featureGroup.addLayer(layer);
-			LeafletDrawUtil.handleEvent(this.zone, this.onDrawCreated, e);
+			LeafletUtil.handleEvent(this.zone, this.onDrawCreated, e);
 		});
 
 		// add draw event pass throughs
-		map.on(L.Draw.Event.EDITED, (e: L.DrawEvents.Edited) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEdited, e));
-		map.on(L.Draw.Event.DELETED, (e: L.DrawEvents.Deleted) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawDeleted, e));
-		map.on(L.Draw.Event.DRAWSTART, (e: L.DrawEvents.DrawStart) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawStart, e));
-		map.on(L.Draw.Event.DRAWSTOP, (e: L.DrawEvents.DrawStop) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawStop, e));
-		map.on(L.Draw.Event.EDITSTART, (e: L.DrawEvents.EditStart) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditStart, e));
-		map.on(L.Draw.Event.EDITMOVE, (e: L.DrawEvents.EditMove) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditMove, e));
-		map.on(L.Draw.Event.EDITRESIZE, (e: L.DrawEvents.EditResize) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditResize, e));
-		map.on(L.Draw.Event.EDITVERTEX, (e: L.DrawEvents.EditVertex) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditVertex, e));
-		map.on(L.Draw.Event.EDITSTOP, (e: L.DrawEvents.EditStop) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawEditStop, e));
-		map.on(L.Draw.Event.DELETESTART, (e: L.DrawEvents.DeleteStart) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawDeleteStart, e));
-		map.on(L.Draw.Event.DELETESTOP, (e: L.DrawEvents.DeleteStop) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawDeleteStop, e));
-		map.on(L.Draw.Event.TOOLBAROPENED, (e: L.DrawEvents.ToolbarOpened) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawToolbarOpened, e));
-		map.on(L.Draw.Event.TOOLBARCLOSED, (e: L.DrawEvents.ToolbarClosed) => LeafletDrawUtil.handleEvent(this.zone, this.onDrawToolbarClosed, e));
+		map.on(L.Draw.Event.EDITED, (e: L.DrawEvents.Edited) => LeafletUtil.handleEvent(this.zone, this.onDrawEdited, e));
+		map.on(L.Draw.Event.DELETED, (e: L.DrawEvents.Deleted) => LeafletUtil.handleEvent(this.zone, this.onDrawDeleted, e));
+		map.on(L.Draw.Event.DRAWSTART, (e: L.DrawEvents.DrawStart) => LeafletUtil.handleEvent(this.zone, this.onDrawStart, e));
+		map.on(L.Draw.Event.DRAWSTOP, (e: L.DrawEvents.DrawStop) => LeafletUtil.handleEvent(this.zone, this.onDrawStop, e));
+		map.on(L.Draw.Event.EDITSTART, (e: L.DrawEvents.EditStart) => LeafletUtil.handleEvent(this.zone, this.onDrawEditStart, e));
+		map.on(L.Draw.Event.EDITMOVE, (e: L.DrawEvents.EditMove) => LeafletUtil.handleEvent(this.zone, this.onDrawEditMove, e));
+		map.on(L.Draw.Event.EDITRESIZE, (e: L.DrawEvents.EditResize) => LeafletUtil.handleEvent(this.zone, this.onDrawEditResize, e));
+		map.on(L.Draw.Event.EDITVERTEX, (e: L.DrawEvents.EditVertex) => LeafletUtil.handleEvent(this.zone, this.onDrawEditVertex, e));
+		map.on(L.Draw.Event.EDITSTOP, (e: L.DrawEvents.EditStop) => LeafletUtil.handleEvent(this.zone, this.onDrawEditStop, e));
+		map.on(L.Draw.Event.DELETESTART, (e: L.DrawEvents.DeleteStart) => LeafletUtil.handleEvent(this.zone, this.onDrawDeleteStart, e));
+		map.on(L.Draw.Event.DELETESTOP, (e: L.DrawEvents.DeleteStop) => LeafletUtil.handleEvent(this.zone, this.onDrawDeleteStop, e));
+		map.on(L.Draw.Event.TOOLBAROPENED, (e: L.DrawEvents.ToolbarOpened) => LeafletUtil.handleEvent(this.zone, this.onDrawToolbarOpened, e));
+		map.on(L.Draw.Event.TOOLBARCLOSED, (e: L.DrawEvents.ToolbarClosed) => LeafletUtil.handleEvent(this.zone, this.onDrawToolbarClosed, e));
 
 
 		// Notify others that the draw control has been created
