@@ -8,9 +8,9 @@
 *IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```* 
 
 > Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
-> Provides Leaflet Draw integration into Angular.io (v2+) projects. Compatible with Leaflet v1.0.x and Leaflet Draw 0.4.x
+> Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 0.4.x
 
-> Now supports Angular v5, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
+> Now supports Angular v7, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
 
 ## Table of Contents
 - [Install](#install)
@@ -37,7 +37,7 @@ npm install --save-dev @types/leaflet
 npm install --save-dev @types/leaflet-draw
 ```
 
-If you want to run the demo, clone the repository, perform an ```npm install```, ```gulp dev``` and then go to http://localhost:9000/src/demo/index.html
+If you want to run the demo, clone the repository, perform an ```npm install```, ```npm run start``` and then go to http://localhost:4200
 
 
 ## Usage
@@ -84,7 +84,6 @@ imports: [
 #### Not Using Typescript?
 You brave soul.
 The code is exported using UMD (bundles are in the ./dist dir) so you should be able to import is using whatever module system/builder you're using, even if you aren't using Typescript.
-
 
 
 ### Create and Configure a Map with the Draw Controls
@@ -256,8 +255,12 @@ For more details on how to set this up, reference the README from [@asymmetrik/n
 
 ## Changelog
 
+### 4.0.0
+- Angular 7
+- Started using the HtmlWebpackPlugin to generate the index.html file in the dist dir, so you don't need to add `/src/demo` to the end of the URL to hit the demo.
+
 #### 3.2.0
-Added 
+Added [draw events](#draw-events).
 
 #### 3.1.0
 Added the ```leafletDrawReady``` output. This output is used to expose the Leaflet Draw Control.
