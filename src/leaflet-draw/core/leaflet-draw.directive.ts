@@ -3,8 +3,8 @@ import { Directive, EventEmitter, Input, NgZone, OnChanges, OnInit, Output, Simp
 import * as L from 'leaflet';
 import 'leaflet-draw';
 
-import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
-
+import { LeafletDirective, LeafletDirectiveWrapper } from '@asymmetrik/ngx-leaflet';
+import { LeafletUtil } from '@asymmetrik/ngx-leaflet/dist/leaflet/core/leaflet.util';
 
 @Directive({
 	selector: '[leafletDraw]'
