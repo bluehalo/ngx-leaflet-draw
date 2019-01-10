@@ -37,7 +37,7 @@ npm install --save-dev @types/leaflet
 npm install --save-dev @types/leaflet-draw
 ```
 
-If you want to run the demo, clone the repository, perform an ```npm install```, ```npm run start``` and then go to http://localhost:4200
+If you want to run the demo, clone the repository, perform an ```npm install```, ```npm run demo``` and then go to http://localhost:4200
 
 
 ## Usage
