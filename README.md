@@ -16,7 +16,6 @@
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
-- [Changelog](#changelog)
 - [Contribute](#contribute)
 - [License](#license)
 - [Credits](#credits)
@@ -251,26 +250,6 @@ When it evaluates to true, the child element is added to the map, which recreate
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
 For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).  
-
-
-## Changelog
-
-### 4.0.0
-- Angular 7
-- Started using the HtmlWebpackPlugin to generate the index.html file in the dist dir, so you don't need to add `/src/demo` to the end of the URL to hit the demo.
-
-#### 3.2.0
-Added [draw events](#draw-events).
-
-#### 3.1.0
-Added the ```leafletDrawReady``` output. This output is used to expose the Leaflet Draw Control.
-
-### 3.0
-Support for Angular 5. Also cleaned up some of the functionality related to Angular zone management.
-Added documentation to README on Zone management.
-
-### 2.0
-Support for Angular 4.
 
 
 ## Contribute
