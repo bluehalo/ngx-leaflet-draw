@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.0
+- Angular 8
+
 ### 4.1.0
 - Fixed external referenced in rollup
 - Updated minor dependencies
