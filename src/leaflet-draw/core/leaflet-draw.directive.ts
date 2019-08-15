@@ -18,6 +18,7 @@ export class LeafletDrawDirective
 	featureGroup: L.FeatureGroup;
 
 	@Input('leafletDrawOptions') drawOptions: L.Control.DrawConstructorOptions = null;
+	@Input('leafletDrawOnCreatedAddToFeatureGroup') onCreatedAddToFeatureGroup: boolean = true;
 
 	// Configure callback function for the map
 	@Output('leafletDrawReady') drawReady = new EventEmitter<L.Control.Draw>();
@@ -63,7 +64,9 @@ export class LeafletDrawDirective
 		const map = this.leafletDirective.getMap();
 		map.on(L.Draw.Event.CREATED, (e: any) => {
 			const layer = (e as L.DrawEvents.Created).layer;
-			this.featureGroup.addLayer(layer);
+			if (this.onCreatedAddToFeatureGroup) {
+				this.featureGroup.addLayer(layer);
+			}
 			LeafletUtil.handleEvent(this.zone, this.onDrawCreated, e);
 		});
 
