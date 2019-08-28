@@ -5,6 +5,38 @@ import 'leaflet-draw';
 
 import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
 
+// tslint:disable-next-line:interface-name
+interface DrawToolbarTooltips {
+	/**
+	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.circle.
+	 */
+	circle?: string;
+
+	/**
+	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.circlemarker.
+	 */
+	circlemarker?: string;
+
+	/**
+	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.marker.
+	 */
+	marker?: string;
+
+	/**
+	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.polygon.
+	 */
+	polygon?: string;
+
+	/**
+	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.polyline.
+	 */
+	polyline?: string;
+
+	/**
+	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.rectangle.
+	 */
+	rectangle?: string;
+}
 
 @Directive({
 	selector: '[leafletDraw]'
@@ -18,6 +50,7 @@ export class LeafletDrawDirective
 	featureGroup: L.FeatureGroup;
 
 	@Input('leafletDrawOptions') drawOptions: L.Control.DrawConstructorOptions = null;
+	@Input('leafletDrawToolbarTooltips') drawToolbarTooltips: DrawToolbarTooltips = null;
 
 	// Configure callback function for the map
 	@Output('leafletDrawReady') drawReady = new EventEmitter<L.Control.Draw>();
@@ -49,6 +82,10 @@ export class LeafletDrawDirective
 
 		// Initialize the draw options (in case they weren't provided)
 		this.drawOptions = this.initializeDrawOptions(this.drawOptions);
+
+		// Initialize L.drawLocal.draw.toolbar.buttons.* values.
+		// Must be done before "new L.Control.Draw".
+		this.initializeToolbarTooltips(this.drawToolbarTooltips);
 
 		// Create the control
 		this.drawControl =  new L.Control.Draw(this.drawOptions);
@@ -85,6 +122,34 @@ export class LeafletDrawDirective
 
 		// Notify others that the draw control has been created
 		this.drawReady.emit(this.drawControl);
+	}
+
+	// This performes tooltip customization like described in Leaflet.draw/docs/examples/basic.html:
+	//     L.drawLocal.draw.toolbar.buttons.polygon = 'Draw a sexy polygon!';
+	//     var drawControl = new L.Control.Draw({ ...
+	initializeToolbarTooltips(drawToolbarTooltips: DrawToolbarTooltips): void {
+		if (!drawToolbarTooltips) {
+			return;
+		}
+		const buttons = (L as any).drawLocal.draw.toolbar.buttons;
+		if (drawToolbarTooltips.circle) {
+			buttons.circle = drawToolbarTooltips.circle;
+		}
+		if (drawToolbarTooltips.circlemarker) {
+			buttons.circlemarker = drawToolbarTooltips.circlemarker;
+		}
+		if (drawToolbarTooltips.marker) {
+			buttons.marker = drawToolbarTooltips.marker;
+		}
+		if (drawToolbarTooltips.polygon) {
+			buttons.polygon = drawToolbarTooltips.polygon;
+		}
+		if (drawToolbarTooltips.polyline) {
+			buttons.polyline = drawToolbarTooltips.polyline;
+		}
+		if (drawToolbarTooltips.rectangle) {
+			buttons.rectangle = drawToolbarTooltips.rectangle;
+		}
 	}
 
 	ngOnDestroy() {

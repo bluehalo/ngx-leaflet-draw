@@ -94,7 +94,8 @@ Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw c
 <div leaflet style="height: 400px;"
      leafletDraw
      [leafletOptions]="options"
-     [leafletDrawOptions]="drawOptions">
+     [leafletDrawOptions]="drawOptions"
+     [leafletDrawToolbarTooltips]="drawToolbarTooltips">
 </div>
 ```
 
@@ -120,7 +121,12 @@ drawOptions = {
       polyline: false,
       circle: {
          shapeOptions: {
-            color: '#aaaaaa'
+            color: '#d4af37'
+         }
+      },
+      rectangle: {
+         shapeOptions: {
+            color: '#85bb65'
          }
       }
    }
@@ -131,6 +137,20 @@ The options object is passed through to the Leaflet.draw object.
 Therefore, you can reference [their documentation](https://github.com/Leaflet/Leaflet.draw) for help configuring the draw control.
 
 If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object. 
+
+#### drawToolbarTooltips
+
+This options object is separate from leafletDrawOptions because it is not
+passed through to the Leaflet.draw object but instead is translated into
+`L.drawLocal.draw.toolbar.buttons.*` values. This translation is only currently
+done at creation time.
+
+```js
+drawToolbarTooltips = {
+   circle: 'Draw coin',
+   rectangle: 'Draw banknote',
+};
+```
 
 ### Draw Events
 This leaflet draw plugin exposes the `L.Draw.Event`s found in the [leaflet draw documentation](http://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html#l-draw-event).
