@@ -43,12 +43,11 @@ If you want to run the demo, clone the repository, perform an ```npm install```,
 To use this library, there are a handful of setup steps to go through that vary based on your app environment (e.g., Webpack, ngCli, SystemJS, etc.).
 Generally, the steps are:
 
-* Follow the instructions to install and configure [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet)
-* Install this library and the Leaflet-draw typings (see above).
-* Import the Leaflet and Leaflet-draw stylesheet
-* Import the ngx-leaflet and ngx-leaflet-draw modules into your Angular project
-* Create and configure a map (see docs below and/or demo)
-
+- Follow the instructions to install and configure [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet)
+- Install this library and the Leaflet-draw typings (see above).
+- Import the Leaflet and Leaflet-draw stylesheet
+- Import the ngx-leaflet and ngx-leaflet-draw modules into your Angular project
+- Create and configure a map (see docs below and/or demo)
 
 ### Import the Leaflet Stylesheet
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
@@ -157,22 +156,23 @@ This leaflet draw plugin exposes the `L.Draw.Event`s found in the [leaflet draw 
 For a working example, check out the the demo.
 
 The following events are provided:
-* ```(leafletDrawCreated)```
-* ```(leafletDrawEdited)```
-* ```(leafletDrawDeleted)```
-* ```(leafletDrawStart)```
-* ```(leafletDrawStop)```
-* ```(leafletDrawVertex)```
-* ```(leafletDrawEditStart)```
-* ```(leafletDrawEditMove)```
-* ```(leafletDrawEditResize)```
-* ```(leafletDrawEditVertex)```
-* ```(leafletDrawEditStop)```
-* ```(leafletDrawDeleteStart)```
-* ```(leafletDrawDeleteStop)```
-* ```(leafletDrawToolbarOpened)```
-* ```(leafletDrawToolbarClosed)```
-* ```(leafletDrawMarkerContext)```
+
+- ```(leafletDrawCreated)```
+- ```(leafletDrawEdited)```
+- ```(leafletDrawDeleted)```
+- ```(leafletDrawStart)```
+- ```(leafletDrawStop)```
+- ```(leafletDrawVertex)```
+- ```(leafletDrawEditStart)```
+- ```(leafletDrawEditMove)```
+- ```(leafletDrawEditResize)```
+- ```(leafletDrawEditVertex)```
+- ```(leafletDrawEditStop)```
+- ```(leafletDrawDeleteStart)```
+- ```(leafletDrawDeleteStop)```
+- ```(leafletDrawToolbarOpened)```
+- ```(leafletDrawToolbarClosed)```
+- ```(leafletDrawMarkerContext)```
 
 ### Getting a Reference to the Draw Control
 Occasionally, you may need to directly access the Leaflet Draw Control instance.
