@@ -23,7 +23,8 @@
 
 ## Install
 Install the package and its peer dependencies via npm (or yarn):
-```
+
+```shell
 npm install leaflet
 npm install leaflet-draw
 npm install @asymmetrik/ngx-leaflet
@@ -31,7 +32,8 @@ npm install @asymmetrik/ngx-leaflet-draw
 ```
 
 If you intend to use this library in a typescript project (utilizing the typings), you will need to also install the leaflet typings via npm:
-```
+
+```shell
 npm install --save-dev @types/leaflet
 npm install --save-dev @types/leaflet-draw
 ```
