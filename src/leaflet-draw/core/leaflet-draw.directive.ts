@@ -6,7 +6,7 @@ import 'leaflet-draw';
 import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
 
 // tslint:disable-next-line:interface-name
-interface DrawToolbarTooltips {
+export interface DrawToolbarTooltips {
 	/**
 	 * Tooltip string for L.drawLocal.draw.toolbar.buttons.circle.
 	 */
