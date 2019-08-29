@@ -5,7 +5,7 @@
 [travis-url]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw/
 [travis-image]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw.svg
 
-*IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```* 
+*IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```*
 
 > Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 0.4.x
@@ -52,7 +52,7 @@ Generally, the steps are:
 
 ### Import the Leaflet Stylesheet
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
-If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` and ```./node_modules/leaflet-draw/dist/leaflet.draw.css```. 
+If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` and ```./node_modules/leaflet-draw/dist/leaflet.draw.css```.
 How you include the stylesheet will depend on your specific setup. For examples, refer to the [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet) README
 
 
@@ -66,7 +66,7 @@ Before you can use the module in your Angular.io app, you'll need to import it i
 Note that you also need to import the ngx-leaflet module as well.
 
 For example, in your ```app.module.ts```, add:
- 
+
 ```js
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
@@ -100,11 +100,11 @@ Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw c
 ```
 
 #### leafletDraw
-This is an attribute directive that initiates the leaflet draw plugin. 
+This is an attribute directive that initiates the leaflet draw plugin.
 
 #### leafletDrawOptions
 Input binding for the options to be passed to the draw plugin upon creation.
-These options are only currently processed at creation time. 
+These options are only currently processed at creation time.
 
 ```js
 drawOptions = {
@@ -136,7 +136,7 @@ drawOptions = {
 The options object is passed through to the Leaflet.draw object.
 Therefore, you can reference [their documentation](https://github.com/Leaflet/Leaflet.draw) for help configuring the draw control.
 
-If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object. 
+If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object.
 
 #### drawToolbarTooltips
 
@@ -231,7 +231,7 @@ This will only work if your custom component/directive exists on the same DOM el
 })
 export class MyCustomDirective {
    leafletDrawDirective: LeafletDrawDirective;
-	
+
    constructor(leafletDrawDirective: LeafletDrawDirective) {
       this.leafletDrawDirective = leafletDrawDirective;
    }
@@ -269,7 +269,7 @@ When it evaluates to true, the child element is added to the map, which recreate
 ### A Note About Markers
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
-For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).  
+For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).
 
 
 ## Contribute
