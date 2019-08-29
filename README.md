@@ -89,12 +89,14 @@ The code is exported using UMD (bundles are in the ./dist dir) so you should be 
 To create a map, use the ```leaflet``` attribute directive. This directive must appear first.
 You must specify an initial zoom/center and set of layers either via ```leafletOptions``` or by binding to ```leafletZoom```, ```leafletCenter```, and ```leafletLayers```.
 Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw control and configure it with ```leafletDrawOptions```.
+```leafletDrawOnCreatedAddToFeatureGroup``` is an optional attribute, that defaults to ```true```. It configures, whether newly drawn features are directly added to the feature group (default behavior of ngx-leaflet-draw) or not (default behavior of leaflet-draw).
 
 ```html
 <div leaflet style="height: 400px;"
      leafletDraw
      [leafletOptions]="options"
-     [leafletDrawOptions]="drawOptions">
+     [leafletDrawOptions]="drawOptions"
+	 [leafletDrawOnCreatedAddToFeatureGroup]="false">
 </div>
 ```
 
