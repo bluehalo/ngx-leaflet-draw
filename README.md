@@ -8,9 +8,9 @@
 *IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```* 
 
 > Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
-> Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 0.4.x
+> Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
-> Now supports Angular v8, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
+> Now supports Angular v9, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
 
 ## Table of Contents
 - [Install](#install)
@@ -74,8 +74,8 @@ import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
 ...
 imports: [
    ...
-   LeafletModule.forRoot(),
-   LeafletDrawModule.forRoot()
+   LeafletModule,
+   LeafletDrawModule
 ]
 ...
 ```
@@ -113,8 +113,9 @@ drawOptions = {
          icon: L.icon({
              iconSize: [ 25, 41 ],
              iconAnchor: [ 13, 41 ],
-             iconUrl: 'assets/marker-icon.png',
-             shadowUrl: 'assets/marker-shadow.png'
+             iconUrl: '2b3e1faf89f94a4835397e7a43b4f77d.png',
+             iconRetinaUrl: '680f69f3c2e6b90c1812a813edf67fd7.png',
+             shadowUrl: 'a0c6cc1401c107b501efee6477816891.png'
          })
       },
       polyline: false,
@@ -211,7 +212,7 @@ This will only work if your custom component/directive exists on the same DOM el
 })
 export class MyCustomDirective {
    leafletDrawDirective: LeafletDrawDirective;
-	
+
    constructor(leafletDrawDirective: LeafletDrawDirective) {
       this.leafletDrawDirective = leafletDrawDirective;
    }
