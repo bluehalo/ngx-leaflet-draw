@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.0
+Support for Angular 9
+
+- Renamed UMD bundle to `ngx-leaflet-draw.umd.js`. This shouldn't affect anyone unless you're manually including the bundle.
+- Angular deprecated parameterless forRoot, so I removed the static function. You may need to update your import.
+
 ## 5.0.0
 - Angular 8
 

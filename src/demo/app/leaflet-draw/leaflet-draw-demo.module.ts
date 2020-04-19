@@ -15,8 +15,8 @@ import { LeafletDrawCoreDemoComponent } from './core/core-demo.component';
 		CommonModule,
 		FormsModule,
 
-		LeafletModule.forRoot(),
-		LeafletDrawModule.forRoot()
+		LeafletModule,
+		LeafletDrawModule
 	],
 	declarations: [
 		LeafletDrawDemoComponent,
