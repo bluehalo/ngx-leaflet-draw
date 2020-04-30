@@ -5,7 +5,6 @@ import 'leaflet-draw';
 
 import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
 
-
 @Directive({
 	selector: '[leafletDraw]'
 })
