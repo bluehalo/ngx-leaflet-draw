@@ -48,7 +48,6 @@
 		"@angular/platform-browser-dynamic": "9",
 		"@rollup/plugin-commonjs": "11",
 		"@rollup/plugin-node-resolve": "7",
-		"bootstrap": "4",
 		"@asymmetrik/ngx-leaflet": "7",
 		"leaflet": "1",
 		"@types/leaflet": "1",
