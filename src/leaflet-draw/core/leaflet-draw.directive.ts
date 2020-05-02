@@ -1,9 +1,11 @@
 import { Directive, EventEmitter, Input, NgZone, OnInit, Output } from '@angular/core';
 
-import { Control, Draw, DrawEvents } from 'leaflet';
+import { Control, Draw, DrawEvents, drawLocal } from 'leaflet';
 import 'leaflet-draw';
 
 import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
+
+import { LeafletDrawUtil } from './leaflet-draw.util';
 
 @Directive({
 	selector: '[leafletDraw]'
@@ -16,6 +18,9 @@ export class LeafletDrawDirective
 	drawControl: Control.Draw;
 
 	@Input('leafletDrawOptions') drawOptions: Control.DrawConstructorOptions = null;
+
+	// Using 'any' here to avoid duplicating the DrawLocal interface with a bunch of optional properties
+	@Input('leafletDrawLocal') drawLocal: any = null;
 
 	// Configure callback function for the map
 	@Output('leafletDrawReady') drawReady = new EventEmitter<Control.Draw>();
@@ -44,6 +49,11 @@ export class LeafletDrawDirective
 
 	ngOnInit() {
 		this.leafletDirective.init();
+
+		// Configure localization options
+		if(null != this.drawLocal) {
+			LeafletDrawUtil.deepLiteralCopy(drawLocal, this.drawLocal);
+		}
 
 		// Create the control
 		this.drawControl =  new Control.Draw(this.drawOptions);

@@ -35,6 +35,16 @@ export class LeafletDrawCoreDemoComponent {
 		}
 	};
 
+	drawLocal: any = {
+		draw: {
+			toolbar: {
+				buttons: {
+					polygon: 'Draw an awesome polygon!'
+				}
+			}
+		}
+	};
+
 	public onDrawCreated(e: any) {
 		// tslint:disable-next-line:no-console
 		console.log('Draw Created Event!');
