@@ -76,9 +76,9 @@ import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
 
 ...
 imports: [
-   ...
-   LeafletModule,
-   LeafletDrawModule
+	...
+	LeafletModule,
+	LeafletDrawModule
 ]
 ...
 ```
@@ -99,8 +99,29 @@ Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw c
      leafletDraw
      [leafletOptions]="options"
      [leafletDrawOptions]="drawOptions"
-     [leafletDrawToolbarTooltips]="drawToolbarTooltips">
+     (leafletDrawCreated)="onDrawCreated($event)>
+
+	<div [leafletLayer]="drawnItems"></div>
+
 </div>
+```
+
+To enable editing, you need to add a `featureGroup` to the map and pass the feature group in with the `drawOptions`.
+In addition, you will need to add layers to the feature group yourself, as this will no longer happen automatically.
+Both of these changes are new in `@asymmetrik/ngx-leaflet-draw@6`, and were made to match default Leaflet Draw behavior.
+
+```js
+drawItems: FeatureGroup = featureGroup();
+
+drawOptions = {
+	edit: {
+		featureGroup: this.drawnItems
+	}
+};
+
+public onDrawCreated(e: any) {
+	this.drawnItems.addLayer((e as DrawEvents.Created).layer);
+}
 ```
 
 #### leafletDraw
@@ -114,29 +135,32 @@ These options are only currently processed at creation time.
 
 ```js
 drawOptions = {
-   position: 'topright',
-   draw: {
-      marker: {
-         icon: L.icon({
-            iconSize: [ 25, 41 ],
-            iconAnchor: [ 13, 41 ],
-            iconUrl: '2b3e1faf89f94a4835397e7a43b4f77d.png',
-            iconRetinaUrl: '680f69f3c2e6b90c1812a813edf67fd7.png',
-            shadowUrl: 'a0c6cc1401c107b501efee6477816891.png'
-         })
-      },
-      polyline: false,
-      circle: {
-         shapeOptions: {
-            color: '#d4af37'
-         }
-      },
-      rectangle: {
-         shapeOptions: {
-            color: '#85bb65'
-         }
-      }
-   }
+	position: 'topright',
+	draw: {
+		marker: {
+			icon: L.icon({
+				iconSize: [ 25, 41 ],
+				iconAnchor: [ 13, 41 ],
+				iconUrl: '2b3e1faf89f94a4835397e7a43b4f77d.png',
+				iconRetinaUrl: '680f69f3c2e6b90c1812a813edf67fd7.png',
+				shadowUrl: 'a0c6cc1401c107b501efee6477816891.png'
+			})
+		},
+		polyline: false,
+		circle: {
+			shapeOptions: {
+				color: '#d4af37'
+			}
+		},
+		rectangle: {
+			shapeOptions: {
+				color: '#85bb65'
+			}
+		}
+	},
+	edit: {
+		featureGroup: this.drawnItems
+	}
 };
 ```
 
@@ -145,17 +169,20 @@ Therefore, you can reference [their documentation](https://github.com/Leaflet/Le
 
 If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object.
 
-#### drawToolbarTooltips
+#### leafletDrawLocal
 
-This options object is separate from leafletDrawOptions because it is not
-passed through to the Leaflet.draw object but instead is translated into
-`L.drawLocal.draw.toolbar.buttons.*` values. This translation is only currently
-done at creation time.
+This object is copied into `L.drawLocal` to set localization options.
+These settings are only applied at creation time.
 
 ```js
-drawToolbarTooltips = {
-   circle: 'Draw coin',
-   rectangle: 'Draw banknote',
+drawLocal: any = {
+	draw: {
+		toolbar: {
+			buttons: {
+				polygon: 'Draw an awesome polygon!'
+			}
+		}
+	}
 };
 ```
 
@@ -211,7 +238,7 @@ The event will only fire when the Control exists and is ready for manipulation.
 
 ```js
 onDrawReady(drawControl: Draw.Control) {
-   // Do stuff with map
+	// Do stuff with map
 }
 ```
 
@@ -231,7 +258,7 @@ This will only work if your custom component/directive exists on the same DOM el
 
 <!-- On a child DOM element -->
 <div leaflet leafletDraw>
-   <div myCustomDirective></div>
+	<div myCustomDirective></div>
 </div>
 ```
 
@@ -240,17 +267,17 @@ This will only work if your custom component/directive exists on the same DOM el
    selector: '[myCustomDirective]'
 })
 export class MyCustomDirective {
-   leafletDrawDirective: LeafletDrawDirective;
+	leafletDrawDirective: LeafletDrawDirective;
 
-   constructor(leafletDrawDirective: LeafletDrawDirective) {
-      this.leafletDrawDirective = leafletDrawDirective;
-   }
+	constructor(leafletDrawDirective: LeafletDrawDirective) {
+		this.leafletDrawDirective = leafletDrawDirective;
+	}
 
-   someFunction() {
-      if (null != this.leafletDrawDirective.getDrawControl()) {
-         // Do stuff with the draw control
-      }
-   }
+	someFunction() {
+		if (null != this.leafletDrawDirective.getDrawControl()) {
+			// Do stuff with the draw control
+		}
+	}
 }
 ```
 
@@ -265,9 +292,9 @@ If you want to toggle the draw control on and off, you can use the following app
 <div leaflet style="height: 400px;"
      [leafletOptions]="options">
 
-   <div *ngIf="shown"
-        leafletDraw
-        [leafletDrawOptions]="drawOptions"></div>
+	<div *ngIf="shown"
+	     leafletDraw
+	     [leafletDrawOptions]="drawOptions"></div>
 </div>
 ```
 

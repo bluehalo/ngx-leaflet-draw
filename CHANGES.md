@@ -5,6 +5,11 @@ Support for Angular 9
 
 - Renamed UMD bundle to `ngx-leaflet-draw.umd.js`. This shouldn't affect anyone unless you're manually including the bundle.
 - Angular deprecated parameterless forRoot, so I removed the static function. You may need to update your import.
+- Added support for localization using the `[leafletDrawLocal]` input parameter.
+
+BREAKING CHANGES:
+- We no longer automatically add the drawn items featureGroup to the map and no longer automatically add drawn items to the featureGroup. This makes the behavior of this plugin match the default behavior of Leaflet Draw.
+
 
 ## 5.0.0
 - Angular 8
