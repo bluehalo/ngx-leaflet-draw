@@ -11,6 +11,7 @@
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
 > Now supports Angular v9, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
+> Given the lack of activity in the Leaflet.draw project, we are unlikely to extent this plugin with additional functionality beyond Angular upgrades.
 
 ## Table of Contents
 
@@ -99,7 +100,7 @@ Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw c
      leafletDraw
      [leafletOptions]="options"
      [leafletDrawOptions]="drawOptions"
-     (leafletDrawCreated)="onDrawCreated($event)>
+     (leafletDrawCreated)="onDrawCreated($event)">
 
 	<div [leafletLayer]="drawnItems"></div>
 
@@ -306,6 +307,12 @@ When it evaluates to true, the child element is added to the map, which recreate
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
 For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).
+
+### A Note About Angular CLI 8/9+
+
+There's a documented issue w/Leaflet Draw in Angular CLI v8+ projects.
+Now that the build target is "es2015" (in tsconfig.json), there's a bug in Leaflet.draw that causes an error when you use the rectangle draw tool.
+The workaround is to change the target back to "es5".
 
 ## Contribute
 
