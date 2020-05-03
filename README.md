@@ -167,7 +167,6 @@ drawOptions = {
 The options object is passed through to the Leaflet.draw object.
 Therefore, you can reference [their documentation](https://github.com/Leaflet/Leaflet.draw) for help configuring the draw control.
 
-If you do not provide a ```featureGroup``` for the Leaflet.draw plugin to use, the leafletDraw directive will create one internally and put it in the options object.
 
 #### leafletDrawLocal
 
@@ -287,7 +286,7 @@ The benefit of this approach is it's a bit cleaner if you're interested in addin
 
 If you want to toggle the draw control on and off, you can use the following approach:
 
-```js
+```html
 <button (click)="shown = !shown">Show/Hide Control</button>
 <div leaflet style="height: 400px;"
      [leafletOptions]="options">
