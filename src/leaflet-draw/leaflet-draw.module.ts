@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
@@ -16,9 +16,5 @@ import { LeafletDrawDirective } from './core/leaflet-draw.directive';
 	]
 })
 export class LeafletDrawModule {
-
-	static forRoot(): ModuleWithProviders {
-		return { ngModule: LeafletDrawModule, providers: [] };
-	}
 
 }

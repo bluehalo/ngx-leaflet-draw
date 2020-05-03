@@ -1,21 +1,13 @@
-<div class="container" style="margin-top: 30px;">
+<div leaflet style="height: 100%; margin: 0; padding: 0;"
+     leafletDraw
+     [leafletOptions]="options"
+     [leafletDrawOptions]="drawOptions"
+     [leafletDrawLocal]="drawLocal"
+     (leafletDrawCreated)="onDrawCreated($event)"
+     (leafletDrawStart)="onDrawStart($event)">
 
-	<div class="row">
-
-		<!-- Map -->
-		<div class="col-sm-12">
-
-			<div leaflet style="height: 400px;"
-			     leafletDraw
-			     [leafletOptions]="options"
-			     [leafletDrawOptions]="drawOptions"
-			     (leafletDrawCreated)="onDrawCreated($event)"
-			     (leafletDrawStart)="onDrawStart($event)">
-			</div>
-
-		</div>
-
-	</div>
+	<!-- Add the drawnItems featureGroup to the map -->
+	<div [leafletLayer]="drawnItems"></div>
 
 </div>
 
