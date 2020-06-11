@@ -10,6 +10,9 @@ Support for Angular 9
 BREAKING CHANGES:
 - We no longer automatically add the drawn items featureGroup to the map and no longer automatically add drawn items to the featureGroup. This makes the behavior of this plugin match the default behavior of Leaflet Draw.
 
+### 6.0.1
+- Fixing an error with the demo.
+- Fixed an issue with generation of minified bundle to remove comments but include license.
 
 ## 5.0.0
 - Angular 8
