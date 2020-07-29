@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.0.0
+Support for Angular 10
+
 ## 6.0.0
 Support for Angular 9
 
