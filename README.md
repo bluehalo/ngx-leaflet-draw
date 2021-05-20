@@ -112,7 +112,7 @@ In addition, you will need to add layers to the feature group yourself, as this 
 Both of these changes are new in `@asymmetrik/ngx-leaflet-draw@6`, and were made to match default Leaflet Draw behavior.
 
 ```js
-drawItems: FeatureGroup = featureGroup();
+drawnItems: FeatureGroup = featureGroup();
 
 drawOptions = {
 	edit: {
