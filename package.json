@@ -62,7 +62,7 @@
 		"file-loader": "6",
 		"html-loader": "1",
 		"html-webpack-plugin": "4",
-		"node-sass": "4",
+		"node-sass": "7",
 		"resolve-url-loader": "3",
 		"rollup": "2",
 		"rxjs": "6",
