@@ -10,8 +10,8 @@
 > Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
-> Now supports Angular v10, Ahead-of-Time compilation (AOT), and use in Angular-CLI based projects
-> Given the lack of activity in the Leaflet.draw project, we are unlikely to extent this plugin with additional functionality beyond Angular upgrades.
+> Now supports Angular v13 and Ivy, and use in Angular-CLI based projects
+> Given the lack of activity in the Leaflet.draw project, we are unlikely to extend this plugin with additional functionality beyond Angular upgrades.
 
 ## Table of Contents
 
