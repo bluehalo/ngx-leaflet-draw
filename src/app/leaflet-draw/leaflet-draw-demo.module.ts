@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-import { LeafletDrawModule } from '../../../leaflet-draw/leaflet-draw.module';
+import { LeafletDrawModule } from '../../../projects/ngx-leaflet-draw/src/lib/leaflet-draw.module';
 
 import { LeafletDrawDemoComponent } from './leaflet-draw-demo.component';
 import { LeafletDrawCoreDemoComponent } from './core/core-demo.component';
