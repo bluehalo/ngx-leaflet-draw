@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "@asymmetrik/ngx-leaflet": "13",
-    "@types/leaflet": "1",
     "bootstrap": "^4.6.1",
     "copyfiles": "^2.4.1",
     "leaflet": "1",
