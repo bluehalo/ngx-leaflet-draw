@@ -33,6 +33,10 @@ npm install @asymmetrik/ngx-leaflet
 npm install @asymmetrik/ngx-leaflet-draw
 ```
 
+NOTE: I've seen some issues with `leaflet-draw@1.0.3` and `1.0.4`.
+Specifically, label anchors and drawing rectangles doesn't seem to work correctly.
+If you have issues, `leaflet-draw@1.0.2` seems to be the latest release without those issues.
+
 If you intend to use this library in a typescript project (utilizing the typings), you will need to also install the leaflet typings via npm:
 
 ```shell
