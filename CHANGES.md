@@ -3,6 +3,15 @@
 ## 13.0.0
 Support for Angular 13
 
+### 13.0.3
+Bounced around between leaflet-draw versions for peer dependencies.
+I've removed the peer dependency being locked at 1.0.2 for leaflet-draw.
+Be aware that there are issues with later versions.
+
+There are some bugs that are particularly apparent in `leaflet-draw@1.0.3` and `1.0.4`. 
+`leaflet-draw@1.0.2` seems to be the latest version without the issues (drawing a sqaure is broken, label anchors broken, etc.).
+
+
 ## 7.0.0
 Support for Angular 10
 
