@@ -145,6 +145,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ngx-leaflet-draw"
+  }
 }

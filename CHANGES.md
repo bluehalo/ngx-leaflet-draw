@@ -1,5 +1,8 @@
 # Changelog
 
+## 14.0.0
+Support for Angular 14
+
 ## 13.0.0
 Support for Angular 13
 
