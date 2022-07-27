@@ -1,13 +1,13 @@
 {
   "name": "@asymmetrik/ngx-leaflet-draw",
   "description": "Angular.io components for the Leaflet Draw plugin",
-  "version": "14.0.0",
+  "version": "14.0.1",
   "author": "Asymmetrik, Ltd.",
-  "copyright": "Copyright Asymmetrik, A BlueHalo Company 2007-2022 - All Rights Reserved.",
+  "copyright": "Copyright BlueHalo 2007-2022 - All Rights Reserved.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Asymmetrik/ngx-leaflet-draw.git"
+    "url": "https://github.com/bluehalo/ngx-leaflet-draw.git"
   },
 
   "peerDependencies": {
