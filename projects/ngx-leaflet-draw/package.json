@@ -11,9 +11,9 @@
   },
 
   "peerDependencies": {
-    "@angular/common": "16",
-    "@angular/core": "16",
-    "@asymmetrik/ngx-leaflet": "16",
+    "@angular/common": "17.0.4",
+    "@angular/core": "17.0.4",
+    "@asymmetrik/ngx-leaflet": "17.0.0",
     "leaflet": "1",
     "leaflet-draw": "1"
   },

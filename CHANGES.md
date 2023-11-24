@@ -1,5 +1,8 @@
 # Changelog
 
+## 17.0.4
+Support for Angular 17.0.4
+
 ## 16.0.0
 Support for Angular 16
 
