@@ -5,12 +5,10 @@
 [travis-url]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw/
 [travis-image]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw.svg
 
-*IMPORTANT NOTE: We have renamed this package from ```@asymmetrik/angular2-leaflet-draw``` to ```@asymmetrik/ngx-leaflet-draw```*
-
 > Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
-> Now supports Angular v14 and Ivy, and use in Angular-CLI based projects
+> Now supports Angular v17, and use in Angular-CLI based projects
 > Given the lack of activity in the Leaflet.draw project, we are unlikely to extend this plugin with additional functionality beyond Angular upgrades.
 
 ## Table of Contents
@@ -311,12 +309,6 @@ When it evaluates to true, the child element is added to the map, which recreate
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
 For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).
-
-### A Note About Angular CLI 8/9+
-
-There's a documented issue w/Leaflet Draw in Angular CLI v8+ projects.
-Now that the build target is "es2015" (in tsconfig.json), there's a bug in Leaflet.draw that causes an error when you use the rectangle draw tool.
-The workaround is to change the target back to "es5".
 
 ## Contribute
 
