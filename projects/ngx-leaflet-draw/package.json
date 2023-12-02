@@ -1,8 +1,8 @@
 {
   "name": "@asymmetrik/ngx-leaflet-draw",
   "description": "Angular.io components for the Leaflet Draw plugin",
-  "version": "16.0.0",
-  "author": "Asymmetrik, Ltd.",
+  "version": "17.0.0",
+  "author": "BlueHalo, LLC",
   "copyright": "Copyright BlueHalo 2007-2023 - All Rights Reserved.",
   "license": "MIT",
   "repository": {
@@ -11,9 +11,9 @@
   },
 
   "peerDependencies": {
-    "@angular/common": "16",
-    "@angular/core": "16",
-    "@asymmetrik/ngx-leaflet": "16",
+    "@angular/common": "17",
+    "@angular/core": "17",
+    "@asymmetrik/ngx-leaflet": "17",
     "leaflet": "1",
     "leaflet-draw": "1"
   },
