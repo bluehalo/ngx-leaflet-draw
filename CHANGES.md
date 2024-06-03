@@ -1,5 +1,8 @@
 # Changelog
 
+## 18.0.0
+Support for Angular 18
+
 ## 17.0.0
 Support for Angular 17
 
