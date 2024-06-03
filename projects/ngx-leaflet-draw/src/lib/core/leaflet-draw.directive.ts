@@ -3,7 +3,7 @@ import { Directive, EventEmitter, Input, NgZone, OnInit, Output } from '@angular
 import { Control, Draw, DrawEvents, drawLocal } from 'leaflet';
 import 'leaflet-draw';
 
-import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@asymmetrik/ngx-leaflet';
+import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@bluehalo/ngx-leaflet';
 
 import { LeafletDrawUtil } from './leaflet-draw.util';
 

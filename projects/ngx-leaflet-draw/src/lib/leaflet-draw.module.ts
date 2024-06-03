@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
 
 import { LeafletDrawDirective } from './core/leaflet-draw.directive';
 
