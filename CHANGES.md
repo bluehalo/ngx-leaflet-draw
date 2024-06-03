@@ -3,6 +3,8 @@
 ## 18.0.0
 Support for Angular 18
 
+Note that this is the last version of the library that will be published under the namespace @asymmetrik. This and future versions will be published under the @bluehalo namespace.
+
 ## 17.0.0
 Support for Angular 17
 

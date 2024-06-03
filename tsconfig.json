@@ -1,11 +1,11 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
-  "compilerOptions": {
+	"compileOnSave": false,
+	"compilerOptions": {
 	"baseUrl": "./",
 	"outDir": "./dist/out-tsc",
-  "forceConsistentCasingInFileNames": true,
-  "esModuleInterop": true,
+	"forceConsistentCasingInFileNames": true,
+	"esModuleInterop": true,
 	"strict": false,
 	"noImplicitOverride": true,
 	"noPropertyAccessFromIndexSignature": true,
@@ -13,25 +13,25 @@
 	"noFallthroughCasesInSwitch": true,
 	"sourceMap": true,
 	"paths": {
-	  "ngx-leaflet": [
+		"ngx-leaflet": [
 		"dist/ngx-leaflet-draw"
-	  ]
+		]
 	},
-  "declaration": false,
+	"declaration": false,
 	"experimentalDecorators": true,
 	"moduleResolution": "node",
 	"importHelpers": true,
 	"target": "es2020",
 	"module": "es2020",
 	"lib": [
-	  "es2020",
-	  "dom"
+		"es2020",
+		"dom"
 	]
-  },
-  "angularCompilerOptions": {
+	},
+	"angularCompilerOptions": {
 	"enableI18nLegacyMessageIdFormat": false,
 	"strictInjectionParameters": true,
 	"strictInputAccessModifiers": true,
 	"strictTemplates": true
-  }
+	}
 }
