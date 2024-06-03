@@ -1,11 +1,11 @@
-# @asymmetrik/ngx-leaflet-draw
+# @bluehalo/ngx-leaflet-draw
 
 [![Build Status][travis-image]][travis-url]
 
 [travis-url]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw/
 [travis-image]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw.svg
 
-> Leaflet Draw extension to the @asymmetrik/ngx-leaflet package for Angular.io
+> Leaflet Draw extension to the @bluehalo/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
 > Now supports Angular v18, and use in Angular-CLI based projects
@@ -29,8 +29,8 @@ Install the package and its peer dependencies via npm (or yarn):
 ```shell
 npm install leaflet
 npm install leaflet-draw
-npm install @asymmetrik/ngx-leaflet
-npm install @asymmetrik/ngx-leaflet-draw
+npm install @bluehalo/ngx-leaflet
+npm install @bluehalo/ngx-leaflet-draw
 ```
 
 NOTE: I've seen some issues with `leaflet-draw@1.0.3` and `1.0.4`.
@@ -51,7 +51,7 @@ If you want to run the demo, clone the repository, perform an ```npm install```,
 To use this library, there are a handful of setup steps to go through that vary based on your app environment (e.g., Webpack, ngCli, SystemJS, etc.).
 Generally, the steps are:
 
-- Follow the instructions to install and configure [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet)
+- Follow the instructions to install and configure [@bluehalo/ngx-leaflet](https://github.com/Bluehalo/ngx-leaflet)
 - Install this library and the Leaflet-draw typings (see above).
 - Import the Leaflet and Leaflet-draw stylesheet
 - Import the ngx-leaflet and ngx-leaflet-draw modules into your Angular project
@@ -61,7 +61,7 @@ Generally, the steps are:
 
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
 If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` and ```./node_modules/leaflet-draw/dist/leaflet.draw.css```.
-How you include the stylesheet will depend on your specific setup. For examples, refer to the [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet) README
+How you include the stylesheet will depend on your specific setup. For examples, refer to the [@bluehalo/ngx-leaflet](https://github.com/Bluehalo/ngx-leaflet) README
 
 ### Import Code Dependencies and Module
 
@@ -76,8 +76,8 @@ Note that you also need to import the ngx-leaflet module as well.
 For example, in your ```app.module.ts```, add:
 
 ```js
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { LeafletDrawModule } from '@asymmetrik/ngx-leaflet-draw';
+import { LeafletModule } from '@bluehalo/ngx-leaflet';
+import { LeafletDrawModule } from '@bluehalo/ngx-leaflet-draw';
 
 ...
 imports: [
@@ -113,7 +113,7 @@ Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw c
 
 To enable editing, you need to add a `featureGroup` to the map and pass the feature group in with the `drawOptions`.
 In addition, you will need to add layers to the feature group yourself, as this will no longer happen automatically.
-Both of these changes are new in `@asymmetrik/ngx-leaflet-draw@6`, and were made to match default Leaflet Draw behavior.
+Both of these changes are new in `@bluehalo/ngx-leaflet-draw@6`, and were made to match default Leaflet Draw behavior.
 
 ```js
 drawnItems: FeatureGroup = featureGroup();
@@ -310,12 +310,12 @@ When it evaluates to true, the child element is added to the map, which recreate
 
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
-For more details on how to set this up, reference the README from [@asymmetrik/ngx-leaflet](https://github.com/Asymmetrik/ngx-leaflet#a-note-about-markers).
+For more details on how to set this up, reference the README from [@bluehalo/ngx-leaflet](https://github.com/Bluehalo/ngx-leaflet#a-note-about-markers).
 
 ## Contribute
 
-PRs accepted. If you are part of Asymmetrik, please make contributions on feature branches off of the ```develop``` branch.
-If you are outside of Asymmetrik, please fork our repo to make contributions and submit PRs against ```develop```.
+PRs accepted. If you are part of Bluehalo, please make contributions on feature branches off of the ```develop``` branch.
+If you are outside of Bluehalo, please fork our repo to make contributions and submit PRs against ```develop```.
 
 ## License
 
