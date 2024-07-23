@@ -28,7 +28,7 @@ Install the package and its peer dependencies via npm (or yarn):
 
 ```shell
 npm install leaflet
-npm install leaflet-draw
+npm install leaflet-draw@1.0.2
 npm install @bluehalo/ngx-leaflet
 npm install @bluehalo/ngx-leaflet-draw
 ```
@@ -37,7 +37,7 @@ NOTE: I've seen some issues with `leaflet-draw@1.0.3` and `1.0.4`.
 Specifically, label anchors and drawing rectangles doesn't seem to work correctly.
 If you have issues, `leaflet-draw@1.0.2` seems to be the latest release without those issues.
 
-If you intend to use this library in a typescript project (utilizing the typings), you will need to also install the leaflet typings via npm:
+You will need to also install the leaflet typings via npm:
 
 ```shell
 npm install --save-dev @types/leaflet
@@ -47,33 +47,39 @@ npm install --save-dev @types/leaflet-draw
 If you want to run the demo, clone the repository, perform an ```npm install```, ```npm run demo``` and then go to [http://localhost:4200](http://localhost:4200).
 
 ## Usage
+> NOTE: We've simplified the getting started instructions to be more targeted at the most recent versions of Angular.io and the use of Angular CLI.
 
-To use this library, there are a handful of setup steps to go through that vary based on your app environment (e.g., Webpack, ngCli, SystemJS, etc.).
 Generally, the steps are:
 
-- Follow the instructions to install and configure [@bluehalo/ngx-leaflet](https://github.com/Bluehalo/ngx-leaflet)
+- Install and configure [@bluehalo/ngx-leaflet](https://github.com/BlueHalo/ngx-leaflet)
 - Install this library and the Leaflet-draw typings (see above).
 - Import the Leaflet and Leaflet-draw stylesheet
-- Import the ngx-leaflet and ngx-leaflet-draw modules into your Angular project
+- Import ```LeafletModule``` and ```LeafletDraw``` into your Angular project
 - Create and configure a map (see docs below and/or demo)
 
 ### Import the Leaflet Stylesheet
 
 For leaflet to work, you need to have the leaflet stylesheets loaded into your application.
-If you've installed via npm, you will need to load ```./node_modules/leaflet/dist/leaflet.css``` and ```./node_modules/leaflet-draw/dist/leaflet.draw.css```.
-How you include the stylesheet will depend on your specific setup. For examples, refer to the [@bluehalo/ngx-leaflet](https://github.com/Bluehalo/ngx-leaflet) README
+If you've installed via npm, you will need to load both ```./node_modules/leaflet/dist/leaflet.css``` and ```./node_modules/leaflet-draw/dist/leaflet.draw.css```.
+How you include the stylesheet will depend on your specific setup. For examples, refer to the [@bluehalo/ngx-leaflet](https://github.com/BlueHalo/ngx-leaflet) README.
 
-### Import Code Dependencies and Module
+If you are using Angular CLI, you will need to add the CSS files to the styles array contained in ```angular.json```:
+```json
+{
+	...
+	"styles": [
+		"styles.css",
+		"./node_modules/leaflet/dist/leaflet.css",
+		"./node_modules/leaflet-draw/dist/leaflet.draw.css"
+	],
+	...
+}
+```
 
-This project is exported using UMD and it includes typings.
-So, you shouldn't have to do anything special to use it if you're building your project in Typescript.
+### Import LeafletModule and LeafletDrawModule
 
-#### Typescript Angular.io Module Import
-
-Before you can use the module in your Angular.io app, you'll need to import it in your application.
-Note that you also need to import the ngx-leaflet module as well.
-
-For example, in your ```app.module.ts```, add:
+Before you can use the Leaflet components in your Angular.io app, you'll need to import it in your application.
+Depending on if you're using standalone mode or not, you will import it into your modules and/or components.
 
 ```js
 import { LeafletModule } from '@bluehalo/ngx-leaflet';
@@ -87,11 +93,6 @@ imports: [
 ]
 ...
 ```
-
-#### Not Using Typescript?
-
-You brave soul.
-The code is exported using UMD (bundles are in the ./dist dir) so you should be able to import is using whatever module system/builder you're using, even if you aren't using Typescript.
 
 ### Create and Configure a Map with the Draw Controls
 
@@ -137,18 +138,20 @@ This is an attribute directive that initiates the leaflet draw plugin.
 
 Input binding for the options to be passed to the draw plugin upon creation.
 These options are only currently processed at creation time.
+Note that we've included manual configuration of markers to get the icons working correctly. 
 
 ```js
 drawOptions = {
 	position: 'topright',
 	draw: {
 		marker: {
-			icon: L.icon({
+			icon: icon({
+				...Icon.Default.prototype.options,
 				iconSize: [ 25, 41 ],
 				iconAnchor: [ 13, 41 ],
-				iconUrl: '2b3e1faf89f94a4835397e7a43b4f77d.png',
-				iconRetinaUrl: '680f69f3c2e6b90c1812a813edf67fd7.png',
-				shadowUrl: 'a0c6cc1401c107b501efee6477816891.png'
+				iconUrl: 'assets/marker-icon.png',
+				iconRetinaUrl: 'assets/marker-icon-2x.png',
+				shadowUrl: 'assets/marker-shadow.png'
 			})
 		},
 		polyline: false,
