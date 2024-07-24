@@ -1,7 +1,7 @@
 {
   "name": "@bluehalo/ngx-leaflet-draw",
   "description": "Angular.io components for the Leaflet Draw plugin",
-  "version": "18.0.3",
+  "version": "18.0.4",
   "author": "BlueHalo, LLC",
   "copyright": "Copyright BlueHalo 2007-2024 - All Rights Reserved.",
   "license": "MIT",
