@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Input, NgZone, OnInit, Output } from '@angular/core';
 
-import { Control, Draw, DrawEvents, drawLocal } from 'leaflet';
 import 'leaflet-draw';
+import { Control, Draw, DrawEvents, drawLocal } from 'leaflet';
 
 import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@bluehalo/ngx-leaflet';
 
