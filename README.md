@@ -8,10 +8,7 @@
 > Leaflet Draw extension to the @bluehalo/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
-> Now supports Angular v18, and use in Angular-CLI based projects
 > Given the lack of activity in the Leaflet.draw project, we are unlikely to extend this plugin with additional functionality beyond Angular upgrades.
-
-> NOTE: This is the last version of this library that will be published under the namespace @asymmetrik. This and future packages will be released under the @bluehalo namespace. 
 
 ## Table of Contents
 
@@ -47,8 +44,6 @@ npm install --save-dev @types/leaflet-draw
 If you want to run the demo, clone the repository, perform an ```npm install```, ```npm run demo``` and then go to [http://localhost:4200](http://localhost:4200).
 
 ## Usage
-> NOTE: We've simplified the getting started instructions to be more targeted at the most recent versions of Angular.io and the use of Angular CLI.
-
 Generally, the steps are:
 
 - Install and configure [@bluehalo/ngx-leaflet](https://github.com/BlueHalo/ngx-leaflet)
