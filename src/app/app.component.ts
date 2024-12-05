@@ -5,7 +5,7 @@ import { LeafletDrawDemoModule } from './leaflet-draw/leaflet-draw-demo.module';
 	selector: 'app-root',
 	standalone: true,
 	imports: [ LeafletDrawDemoModule ],
-	templateUrl: './app.component.html'
+	templateUrl: './app.component.html',
 })
 export class AppComponent {
 	// Empty component

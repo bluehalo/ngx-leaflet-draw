@@ -4,7 +4,8 @@ import { DrawEvents, featureGroup, FeatureGroup, icon, latLng, tileLayer } from 
 
 @Component({
 	selector: 'leafletDrawCoreDemo',
-	templateUrl: './core-demo.component.html'
+	templateUrl: './core-demo.component.html',
+	standalone: false
 })
 export class LeafletDrawCoreDemoComponent {
 

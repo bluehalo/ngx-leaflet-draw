@@ -8,7 +8,8 @@ import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@bluehal
 import { LeafletDrawUtil } from './leaflet-draw.util';
 
 @Directive({
-	selector: '[leafletDraw]'
+	selector: '[leafletDraw]',
+	standalone: false
 })
 export class LeafletDrawDirective
 	implements OnInit {

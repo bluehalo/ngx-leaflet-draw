@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector: 'leafletDrawDemo',
-	templateUrl: './leaflet-draw-demo.component.html'
+	templateUrl: './leaflet-draw-demo.component.html',
+	standalone: false
 })
 export class LeafletDrawDemoComponent {
 	showDemo = false;
