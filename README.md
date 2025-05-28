@@ -76,17 +76,17 @@ If you are using Angular CLI, you will need to add the CSS files to the styles a
 Before you can use the Leaflet components in your Angular.io app, you'll need to import it in your application.
 Depending on if you're using standalone mode or not, you will import it into your modules and/or components.
 
-```js
-import { LeafletModule } from '@bluehalo/ngx-leaflet';
-import { LeafletDrawModule } from '@bluehalo/ngx-leaflet-draw';
+```typescript
+import { LeafletDirective } from '@bluehalo/ngx-leaflet';
+import { LeafletDrawDirective } from '@bluehalo/ngx-leaflet-draw';
 
-...
-imports: [
-	...
-	LeafletModule,
-	LeafletDrawModule
-]
-...
+@Component({
+	imports: [
+		//...
+		LeafletDirective,
+		LeafletDrawDirective
+	]
+})
 ```
 
 ### Create and Configure a Map with the Draw Controls
@@ -95,7 +95,7 @@ To create a map, use the ```leaflet``` attribute directive. This directive must 
 You must specify an initial zoom/center and set of layers either via ```leafletOptions``` or by binding to ```leafletZoom```, ```leafletCenter```, and ```leafletLayers```.
 Finally, add the ```leafletDraw``` attribute directive to add the leaflet draw control and configure it with ```leafletDrawOptions```.
 
-```html
+```angular181html
 <div leaflet style="height: 400px;"
      leafletDraw
      [leafletOptions]="options"
@@ -111,7 +111,7 @@ To enable editing, you need to add a `featureGroup` to the map and pass the feat
 In addition, you will need to add layers to the feature group yourself, as this will no longer happen automatically.
 Both of these changes are new in `@bluehalo/ngx-leaflet-draw@6`, and were made to match default Leaflet Draw behavior.
 
-```js
+```typescript
 drawnItems: FeatureGroup = featureGroup();
 
 drawOptions = {
@@ -135,7 +135,7 @@ Input binding for the options to be passed to the draw plugin upon creation.
 These options are only currently processed at creation time.
 Note that we've included manual configuration of markers to get the icons working correctly. 
 
-```js
+```typescript
 drawOptions = {
 	position: 'topright',
 	draw: {
@@ -176,7 +176,7 @@ Therefore, you can reference [their documentation](https://github.com/Leaflet/Le
 This object is copied into `L.drawLocal` to set localization options.
 These settings are only applied at creation time.
 
-```js
+```typescript
 drawLocal: any = {
 	draw: {
 		toolbar: {
@@ -229,7 +229,7 @@ With a reference to the directive, you can invoke the ```getDrawControl()``` fun
 This output is emitted when once when the Leaflet Draw Control is initially created inside of the Leaflet Draw directive.
 The event will only fire when the Control exists and is ready for manipulation.
 
-```html
+```angular181html
 <div leaflet
      leafletDraw
      [leafletOptions]="options"
@@ -238,7 +238,7 @@ The event will only fire when the Control exists and is ready for manipulation.
 </div>
 ```
 
-```js
+```typescript
 onDrawReady(drawControl: Draw.Control) {
 	// Do stuff with map
 }
@@ -253,10 +253,9 @@ In Angular.io, directives are injectable the same way that Services are.
 This means that you can create your own component or directive and inject the ```LeafletDrawDirective``` into it.
 This will only work if your custom component/directive exists on the same DOM element and is ordered after the injected LeafletDrawDirective, or if it is on a child DOM element.
 
-```html
+```angular181html
 <!-- On the same DOM element -->
-<div leaflet leafletDraw myCustomDirective>
-</div>
+<div leaflet leafletDraw myCustomDirective></div>
 
 <!-- On a child DOM element -->
 <div leaflet leafletDraw>
@@ -264,19 +263,15 @@ This will only work if your custom component/directive exists on the same DOM el
 </div>
 ```
 
-```js
+```typescript
 @Directive({
    selector: '[myCustomDirective]'
 })
 export class MyCustomDirective {
-	leafletDrawDirective: LeafletDrawDirective;
-
-	constructor(leafletDrawDirective: LeafletDrawDirective) {
-		this.leafletDrawDirective = leafletDrawDirective;
-	}
+	readonly #leafletDrawDirective = inject(LeafletDrawDirective);
 
 	someFunction() {
-		if (null != this.leafletDrawDirective.getDrawControl()) {
+		if (null !== this.#leafletDrawDirective.getDrawControl()) {
 			// Do stuff with the draw control
 		}
 	}
@@ -289,14 +284,12 @@ The benefit of this approach is it's a bit cleaner if you're interested in addin
 
 If you want to toggle the draw control on and off, you can use the following approach:
 
-```html
+```angular181html
 <button (click)="shown = !shown">Show/Hide Control</button>
-<div leaflet style="height: 400px;"
-     [leafletOptions]="options">
-
-	<div *ngIf="shown"
-	     leafletDraw
-	     [leafletDrawOptions]="drawOptions"></div>
+<div leaflet style="height: 400px;" [leafletOptions]="options">
+	@if (shown) {
+		<div leafletDraw [leafletDrawOptions]="drawOptions"></div>
+	}
 </div>
 ```
 
