@@ -5,15 +5,13 @@ import { LeafletModule } from '@bluehalo/ngx-leaflet';
 import { LeafletDrawDirective } from './core/leaflet-draw.directive';
 
 @NgModule({
-	imports: [
-		LeafletModule
-	],
-	exports: [
-		LeafletDrawDirective
-	],
-	declarations: [
-		LeafletDrawDirective
-	]
+    imports: [
+        LeafletModule,
+        LeafletDrawDirective
+    ],
+    exports: [
+        LeafletDrawDirective
+    ]
 })
 export class LeafletDrawModule {
 

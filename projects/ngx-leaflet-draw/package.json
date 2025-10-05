@@ -1,9 +1,9 @@
 {
   "name": "@bluehalo/ngx-leaflet-draw",
   "description": "Angular.io components for the Leaflet Draw plugin",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "author": "BlueHalo, LLC",
-  "copyright": "Copyright BlueHalo 2007-2024 - All Rights Reserved.",
+  "copyright": "Copyright BlueHalo 2007-2025 - All Rights Reserved.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,13 +11,13 @@
   },
 
   "peerDependencies": {
-    "@angular/common": "19",
-    "@angular/core": "19",
-    "@bluehalo/ngx-leaflet": "19",
+    "@angular/common": "20",
+    "@angular/core": "20",
+    "@bluehalo/ngx-leaflet": "20",
     "leaflet": "1",
     "leaflet-draw": "1"
   },
   "dependencies": {
-    "tslib": "^2.6.2"
+    "tslib": "^2.8.0"
   }
 }
