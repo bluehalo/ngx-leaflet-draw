@@ -1,5 +1,8 @@
 # Changelog
 
+## 20.0.0
+Support for Angular 20
+
 ## 19.0.0
 Support for Angular 19
 
