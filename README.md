@@ -1,9 +1,9 @@
 # @bluehalo/ngx-leaflet-draw
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][ci-image]][ci-url]
 
-[travis-url]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw/
-[travis-image]: https://travis-ci.org/Asymmetrik/ngx-leaflet-draw.svg
+[ci-url]: https://github.com/bluehalo/ngx-leaflet-draw/actions/workflows/ci.yml
+[ci-image]: https://github.com/bluehalo/ngx-leaflet-draw/actions/workflows/ci.yml/badge.svg
 
 > Leaflet Draw extension to the @bluehalo/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
