@@ -8,7 +8,7 @@ export class LeafletDrawUtil {
 	static deepLiteralCopy<T>(dest: T, src: any): T {
 		const toReturn: T = dest;
 
-		if (null != src) {
+		if (null != toReturn && null != src) {
 			for (const k in src) {
 
 				if (src.hasOwnProperty(k)) {
