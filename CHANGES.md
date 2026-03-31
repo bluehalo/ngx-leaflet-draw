@@ -1,5 +1,8 @@
 # Changelog
 
+## 21.1.2
+Fix TypeError in `deepLiteralCopy` when a nested destination property does not exist in leaflet's `drawLocal` object (fixes #155)
+
 ## 21.1.1
 Add `/// <reference types="leaflet-draw" />` to library entry point to ensure `@types/leaflet-draw` module augmentations are active for consumers (fixes #163)
 
