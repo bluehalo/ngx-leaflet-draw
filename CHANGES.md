@@ -1,6 +1,9 @@
 # Changelog
 
-## 21.0.0
+## 21.1.1
+Add `/// <reference types="leaflet-draw" />` to library entry point to ensure `@types/leaflet-draw` module augmentations are active for consumers (fixes #163)
+
+## 21.1.0
 Support for Angular 21
 
 ## 20.0.0
