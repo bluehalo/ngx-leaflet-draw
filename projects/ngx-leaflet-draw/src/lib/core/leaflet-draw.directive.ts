@@ -78,8 +78,10 @@ export class LeafletDrawDirective
 		this.addDrawEventHandler(Draw.Event.EDITSTOP, (e: DrawEvents.EditStop) => LeafletUtil.handleEvent(this.zone, this.onDrawEditStop, e));
 		this.addDrawEventHandler(Draw.Event.DELETESTART, (e: DrawEvents.DeleteStart) => LeafletUtil.handleEvent(this.zone, this.onDrawDeleteStart, e));
 		this.addDrawEventHandler(Draw.Event.DELETESTOP, (e: DrawEvents.DeleteStop) => LeafletUtil.handleEvent(this.zone, this.onDrawDeleteStop, e));
+		this.addDrawEventHandler(Draw.Event.DRAWVERTEX, (e: DrawEvents.DrawVertex) => LeafletUtil.handleEvent(this.zone, this.onDrawVertex, e));
 		this.addDrawEventHandler(Draw.Event.TOOLBAROPENED, (e: DrawEvents.ToolbarOpened) => LeafletUtil.handleEvent(this.zone, this.onDrawToolbarOpened, e));
 		this.addDrawEventHandler(Draw.Event.TOOLBARCLOSED, (e: DrawEvents.ToolbarClosed) => LeafletUtil.handleEvent(this.zone, this.onDrawToolbarClosed, e));
+		this.addDrawEventHandler(Draw.Event.MARKERCONTEXT, (e: DrawEvents.MarkerContext) => LeafletUtil.handleEvent(this.zone, this.onDrawMarkerContext, e));
 
 		// Notify others that the draw control has been created
 		this.drawReady.emit(this.drawControl);
