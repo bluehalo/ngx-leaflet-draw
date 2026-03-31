@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, Input, NgZone, OnDestroy, OnInit, Output } from '@angular/core';
 
 import 'leaflet-draw';
-import { Control, Draw, DrawEvents, drawLocal, Map as LeafletMap } from 'leaflet';
+import { Control, Draw, DrawEvents, drawLocal, LeafletEvent, Map as LeafletMap } from 'leaflet';
 
 import { LeafletDirective, LeafletDirectiveWrapper, LeafletUtil } from '@bluehalo/ngx-leaflet';
 
@@ -34,6 +34,7 @@ export class LeafletDrawDirective
 	@Output('leafletDrawDeleted') onDrawDeleted = new EventEmitter<DrawEvents.Deleted>();
 	@Output('leafletDrawStart') onDrawStart = new EventEmitter<DrawEvents.DrawStart>();
 	@Output('leafletDrawStop') onDrawStop = new EventEmitter<DrawEvents.DrawStop>();
+	@Output('leafletDrawCanceled') onDrawCanceled = new EventEmitter<LeafletEvent>();
 	@Output('leafletDrawVertex') onDrawVertex = new EventEmitter<DrawEvents.DrawVertex>();
 	@Output('leafletDrawEditStart') onDrawEditStart = new EventEmitter<DrawEvents.EditStart>();
 	@Output('leafletDrawEditMove') onDrawEditMove = new EventEmitter<DrawEvents.EditMove>();
@@ -71,6 +72,7 @@ export class LeafletDrawDirective
 		this.addDrawEventHandler(Draw.Event.DELETED, (e: DrawEvents.Deleted) => LeafletUtil.handleEvent(this.zone, this.onDrawDeleted, e));
 		this.addDrawEventHandler(Draw.Event.DRAWSTART, (e: DrawEvents.DrawStart) => LeafletUtil.handleEvent(this.zone, this.onDrawStart, e));
 		this.addDrawEventHandler(Draw.Event.DRAWSTOP, (e: DrawEvents.DrawStop) => LeafletUtil.handleEvent(this.zone, this.onDrawStop, e));
+		this.addDrawEventHandler('draw:canceled', (e: LeafletEvent) => LeafletUtil.handleEvent(this.zone, this.onDrawCanceled, e));
 		this.addDrawEventHandler(Draw.Event.EDITSTART, (e: DrawEvents.EditStart) => LeafletUtil.handleEvent(this.zone, this.onDrawEditStart, e));
 		this.addDrawEventHandler(Draw.Event.EDITMOVE, (e: DrawEvents.EditMove) => LeafletUtil.handleEvent(this.zone, this.onDrawEditMove, e));
 		this.addDrawEventHandler(Draw.Event.EDITRESIZE, (e: DrawEvents.EditResize) => LeafletUtil.handleEvent(this.zone, this.onDrawEditResize, e));
