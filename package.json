@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "demo": "ng serve ngx-leaflet-draw-demo",
-    "build": "ng build ngx-leaflet-draw --configuration production && node -e \"const fs=require('fs'),p='./dist/ngx-leaflet-draw/index.d.ts';fs.writeFileSync(p,'/// <reference types=\\\"leaflet-draw\\\" />\\n'+fs.readFileSync(p,'utf8'))\" && copyfiles README.md LICENSE CHANGES.md ./dist/ngx-leaflet-draw",
+    "build": "ng build ngx-leaflet-draw --configuration production && node -e \"const fs=require('fs'),d='./dist/ngx-leaflet-draw',p=d+'/'+JSON.parse(fs.readFileSync(d+'/package.json','utf8')).typings;fs.writeFileSync(p,'/// <reference types=\\\"leaflet-draw\\\" />\\n'+fs.readFileSync(p,'utf8'))\" && copyfiles README.md LICENSE CHANGES.md ./dist/ngx-leaflet-draw",
     "watch": "ng build ngx-leaflet-draw --watch --configuration development",
     "test": "ng test"
   },
