@@ -77,13 +77,14 @@ Before you can use the Leaflet components in your Angular.io app, you'll need to
 Depending on if you're using standalone mode or not, you will import it into your modules and/or components.
 
 ```typescript
-import { LeafletDirective } from '@bluehalo/ngx-leaflet';
+import { LeafletDirective, LeafletLayerDirective } from '@bluehalo/ngx-leaflet';
 import { LeafletDrawDirective } from '@bluehalo/ngx-leaflet-draw';
 
 @Component({
 	imports: [
 		//...
 		LeafletDirective,
+		LeafletLayerDirective,
 		LeafletDrawDirective
 	]
 })
