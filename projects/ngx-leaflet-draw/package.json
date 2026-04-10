@@ -3,7 +3,7 @@
   "description": "Angular.io components for the Leaflet Draw plugin",
   "version": "21.1.2",
   "author": "BlueHalo, LLC",
-  "copyright": "Copyright BlueHalo 2007-2025 - All Rights Reserved.",
+  "copyright": "Copyright (c) BlueHalo LLC",
   "license": "MIT",
   "repository": {
     "type": "git",

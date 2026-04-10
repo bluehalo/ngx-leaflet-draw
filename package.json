@@ -1,7 +1,7 @@
 {
   "name": "@bluehalo/ngx-leaflet-draw",
   "version": "21.1.2",
-  "copyright": "Copyright BlueHalo 2007-2025 - All Rights Reserved.",
+  "copyright": "Copyright (c) BlueHalo LLC",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
