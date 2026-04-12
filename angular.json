@@ -143,7 +143,9 @@
             "polyfills": [
               "zone.js",
               "zone.js/testing"
-            ]
+            ],
+            "karmaConfig": "projects/ngx-leaflet-draw/karma.conf.js",
+            "codeCoverage": true
           }
         }
       }

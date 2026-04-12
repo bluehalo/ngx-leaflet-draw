@@ -1,9 +1,12 @@
 # @bluehalo/ngx-leaflet-draw
 
 [![Build Status][ci-image]][ci-url]
+[![Code Coverage][coverage-image]][coverage-url]
 
 [ci-url]: https://github.com/bluehalo/ngx-leaflet-draw/actions/workflows/ci.yml
 [ci-image]: https://github.com/bluehalo/ngx-leaflet-draw/actions/workflows/ci.yml/badge.svg
+[coverage-url]: https://codecov.io/gh/bluehalo/ngx-leaflet-draw
+[coverage-image]: https://codecov.io/gh/bluehalo/ngx-leaflet-draw/graph/badge.svg
 
 > Leaflet Draw extension to the @bluehalo/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
