@@ -11,8 +11,6 @@
 > Leaflet Draw extension to the @bluehalo/ngx-leaflet package for Angular.io
 > Provides Leaflet Draw integration into Angular.io projects. Compatible with Leaflet v1.x and Leaflet Draw 1.x
 
-> Given the lack of activity in the Leaflet.draw project, we are unlikely to extend this plugin with additional functionality beyond Angular upgrades.
-
 ## Table of Contents
 
 - [Install](#install)
@@ -305,7 +303,7 @@ When it evaluates to true, the child element is added to the map, which recreate
 
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
-For more details on how to set this up, reference the README from [@bluehalo/ngx-leaflet](https://github.com/Bluehalo/ngx-leaflet#a-note-about-markers).
+For more details on how to set this up, reference the README from [@bluehalo/ngx-leaflet](https://github.com/bluehalo/ngx-leaflet#a-note-about-markers).
 
 ## Contribute
 
