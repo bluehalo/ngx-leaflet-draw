@@ -128,15 +128,25 @@ public onDrawCreated(e: any) {
 }
 ```
 
-For full documentation of all directive inputs, draw events, and advanced patterns, see:
-- [API Reference](docs/API.md) — directive inputs (`leafletDrawOptions`, `leafletDrawLocal`), draw events, getting a reference to the draw control
-- [Cookbook](docs/cookbook.md) — showing and hiding the draw control
-
 ### A Note About Markers
 
 If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
 The issue has to do with how Leaflet handles icon image loading.
 For more details on how to set this up, reference the [Marker Setup](https://github.com/bluehalo/ngx-leaflet/blob/master/docs/cookbook.md#marker-setup) guide in the @bluehalo/ngx-leaflet cookbook.
+
+## API
+
+Full API documentation is in [docs/API.md](docs/API.md). It covers:
+- Directive inputs: `leafletDraw`, `leafletDrawOptions`, `leafletDrawLocal`
+- Draw events — all 16 `L.Draw.Event` output bindings
+- Getting a reference to the draw control via `leafletDrawReady` or `LeafletDrawDirective` injection
+
+
+## Cookbook
+
+Common patterns are in [docs/cookbook.md](docs/cookbook.md), including:
+- [Showing and Hiding the Draw Control](docs/cookbook.md#showing-and-hiding-the-draw-control)
+
 
 ## Contribute
 
