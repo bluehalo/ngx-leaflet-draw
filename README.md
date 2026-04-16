@@ -144,18 +144,17 @@ Full API documentation is in [docs/API.md](docs/API.md). It covers:
 
 ## Cookbook
 
-Common patterns are in [docs/cookbook.md](docs/cookbook.md), including:
+Common patterns and examples are in [docs/cookbook.md](docs/cookbook.md), including:
 - [Showing and Hiding the Draw Control](docs/cookbook.md#showing-and-hiding-the-draw-control)
 
 
 ## Contribute
 
-PRs accepted. If you are part of bluehalo, please make contributions on feature branches off of the ```develop``` branch.
-If you are outside of bluehalo, please fork our repo to make contributions and submit PRs against ```develop```.
+PRs accepted. Please make contributions on feature branches and open a pull request against `master`.
 
 ## License
 
-See LICENSE in repository for details.
+See [LICENSE](LICENSE) for details.
 
 ## Credits
 
