@@ -42,7 +42,6 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/leaflet/dist/leaflet.css",
               "leaflet-draw/dist/leaflet.draw.css"
             ],
