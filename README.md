@@ -115,9 +115,22 @@ In addition, you will need to add layers to the feature group yourself, as this 
 Both of these changes are new in `@bluehalo/ngx-leaflet-draw@6`, and were made to match default Leaflet Draw behavior.
 
 ```typescript
+import { DrawEvents, FeatureGroup, featureGroup, icon } from 'leaflet';
+
 drawnItems: FeatureGroup = featureGroup();
 
 drawOptions = {
+	draw: {
+		marker: {
+			icon: icon({
+				iconSize: [ 25, 41 ],
+				iconAnchor: [ 13, 41 ],
+				iconUrl: 'assets/leaflet/marker-icon.png',
+				iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
+				shadowUrl: 'assets/leaflet/marker-shadow.png'
+			})
+		}
+	},
 	edit: {
 		featureGroup: this.drawnItems
 	}
@@ -130,7 +143,7 @@ public onDrawCreated(e: any) {
 
 ### A Note About Markers
 
-If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the ```leafletDrawOptions``` example above.
+If you are using Angular CLI or Webpack to package your project, you will need to configure the marker icon as shown in the `drawOptions` example above.
 The issue has to do with how Leaflet handles icon image loading.
 For more details on how to set this up, reference the [Marker Setup](https://github.com/bluehalo/ngx-leaflet/blob/master/docs/cookbook.md#marker-setup) guide in the @bluehalo/ngx-leaflet cookbook.
 
