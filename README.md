@@ -1,6 +1,6 @@
 # @bluehalo/ngx-leaflet-draw
 
-[![NPM version](npm-image)](npm-url)
+[![NPM version][npm-image]][npm-url]
 [![Build Status][ci-image]][ci-url]
 [![Code Coverage][coverage-image]][coverage-url]
 
