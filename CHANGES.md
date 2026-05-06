@@ -1,5 +1,11 @@
 # Changelog
 
+## 21.1.3
+- CI: replaced Travis CI with GitHub Actions; upgraded to Node 24, actions/checkout and actions/setup-node to v6; added Codecov integration
+- Tests: added unit tests for LeafletDrawDirective (22 tests, 100% branch coverage)
+- Docs: restructured README — extracted API reference and Cookbook to docs/; added missing marker icon config to drawOptions example
+- Chore: removed unused Bootstrap dependency (closes #171); updated copyright to BlueHalo LLC; added npm version badge
+
 ## 21.1.2
 Fix TypeError in `deepLiteralCopy` when a nested destination property does not exist in leaflet's `drawLocal` object (fixes #155)
 
