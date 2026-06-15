@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { latLng, Map as LeafletMap, Control } from 'leaflet';
 import 'leaflet-draw';
@@ -16,6 +16,7 @@ import { LeafletDrawDirective } from './leaflet-draw.directive';
 // ---------------------------------------------------------------------------
 @Component({
 	standalone: false,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<div leaflet
 		[leafletOptions]="options"
 		leafletDraw

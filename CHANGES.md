@@ -1,5 +1,8 @@
 # Changelog
 
+## 22.0.0
+Support for Angular.io 22.
+
 ## 21.1.3
 - CI: replaced Travis CI with GitHub Actions; upgraded to Node 24, actions/checkout and actions/setup-node to v6; added Codecov integration
 - Tests: added unit tests for LeafletDrawDirective (22 tests, 100% branch coverage)
